@@ -1,0 +1,156 @@
+<!-- ============================================================
+     portfolio.dtd
+     DTD du portfolio multilingue de Riham Kaddour Bakir
+     Web Sémantique - Sup Galilée / Université Sorbonne Paris Nord
+     Inspiré du format TMX 1.4 pour les unités de traduction
+     ============================================================ -->
+
+<!-- Élément racine du portfolio -->
+<!ELEMENT portfolio (meta, identity, about, education, experience, skills, projects, video, contact)>
+<!ATTLIST portfolio
+    version     CDATA   #REQUIRED
+    defaultLang CDATA   #REQUIRED
+>
+
+<!-- ===================== META ===================== -->
+<!-- Métadonnées du site, traductions du titre et description -->
+<!ELEMENT meta (langs, siteTitle, siteDescription, keywords)>
+
+<!ELEMENT langs (lang+)>
+<!ELEMENT lang EMPTY>
+<!ATTLIST lang
+    code    CDATA   #REQUIRED
+    label   CDATA   #REQUIRED
+    dir     (ltr|rtl) "ltr"
+    flag    CDATA   #IMPLIED
+>
+
+<!ELEMENT siteTitle (translation+)>
+<!ELEMENT siteDescription (translation+)>
+<!ELEMENT keywords (translation+)>
+
+<!-- Unité de traduction générique -->
+<!ELEMENT translation (#PCDATA)>
+<!ATTLIST translation
+    lang    CDATA   #REQUIRED
+>
+
+<!-- ===================== IDENTITY ===================== -->
+<!ELEMENT identity (fullName, title, tagline, photo, location, email, phone, linkedin, github, portfolio_url)>
+
+<!ELEMENT fullName (#PCDATA)>
+<!ELEMENT title (translation+)>
+<!ELEMENT tagline (translation+)>
+<!ELEMENT photo EMPTY>
+<!ATTLIST photo
+    src     CDATA   #REQUIRED
+    alt_fr  CDATA   #REQUIRED
+    alt_en  CDATA   #REQUIRED
+    alt_ar  CDATA   #REQUIRED
+>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT linkedin EMPTY>
+<!ATTLIST linkedin
+    url     CDATA   #REQUIRED
+    label   CDATA   #REQUIRED
+>
+<!ELEMENT github EMPTY>
+<!ATTLIST github
+    url     CDATA   #REQUIRED
+    label   CDATA   #REQUIRED
+>
+<!ELEMENT portfolio_url (#PCDATA)>
+
+<!-- ===================== ABOUT ===================== -->
+<!ELEMENT about (sectionTitle, content+)>
+<!ELEMENT content (#PCDATA)>
+<!ATTLIST content
+    lang    CDATA   #REQUIRED
+>
+
+<!-- ===================== EDUCATION ===================== -->
+<!ELEMENT education (sectionTitle, degree+)>
+
+<!ELEMENT degree (institution, diploma, period, location_edu, description)>
+<!ATTLIST degree
+    id      CDATA   #REQUIRED
+>
+<!ELEMENT institution (translation+)>
+<!ELEMENT diploma (translation+)>
+<!ELEMENT period (#PCDATA)>
+<!ELEMENT location_edu (#PCDATA)>
+<!ELEMENT description (translation+)>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<!ELEMENT experience (sectionTitle, position+)>
+
+<!ELEMENT position (company, role, period_exp, location_exp, contract, missions+)>
+<!ATTLIST position
+    id      CDATA   #REQUIRED
+>
+<!ELEMENT company (#PCDATA)>
+<!ELEMENT role (translation+)>
+<!ELEMENT period_exp (#PCDATA)>
+<!ELEMENT location_exp (#PCDATA)>
+<!ELEMENT contract (translation+)>
+<!ELEMENT missions (mission+)>
+<!ATTLIST missions
+    lang    CDATA   #REQUIRED
+>
+<!ELEMENT mission (#PCDATA)>
+
+<!-- ===================== SKILLS ===================== -->
+<!ELEMENT skills (sectionTitle, category+)>
+
+<!ELEMENT category (categoryName, skill+)>
+<!ATTLIST category
+    id      CDATA   #REQUIRED
+    icon    CDATA   #IMPLIED
+>
+<!ELEMENT categoryName (translation+)>
+<!ELEMENT skill EMPTY>
+<!ATTLIST skill
+    name    CDATA   #REQUIRED
+    level   (beginner|intermediate|advanced|expert) "intermediate"
+>
+
+<!-- ===================== PROJECTS ===================== -->
+<!ELEMENT projects (sectionTitle, project+)>
+
+<!ELEMENT project (projectTitle, period_proj, projectDesc, techStack, projectLink?)>
+<!ATTLIST project
+    id      CDATA   #REQUIRED
+    type    CDATA   #IMPLIED
+>
+<!ELEMENT projectTitle (translation+)>
+<!ELEMENT period_proj (#PCDATA)>
+<!ELEMENT projectDesc (translation+)>
+<!ELEMENT techStack (tech+)>
+<!ELEMENT tech (#PCDATA)>
+<!ELEMENT projectLink EMPTY>
+<!ATTLIST projectLink
+    url     CDATA   #REQUIRED
+    label   CDATA   #REQUIRED
+>
+
+<!-- ===================== VIDEO ===================== -->
+<!ELEMENT video (sectionTitle, videoItem+)>
+
+<!ELEMENT videoItem EMPTY>
+<!ATTLIST videoItem
+    lang        CDATA   #REQUIRED
+    youtubeId   CDATA   #REQUIRED
+    title       CDATA   #REQUIRED
+    subtitleSrc CDATA   #IMPLIED
+>
+
+<!-- ===================== CONTACT ===================== -->
+<!ELEMENT contact (sectionTitle, contactIntro, availability)>
+
+<!ELEMENT contactIntro (translation+)>
+<!ELEMENT availability (translation+)>
+
+<!-- ===================== SECTION TITLES ===================== -->
+<!ELEMENT sectionTitle (translation+)>

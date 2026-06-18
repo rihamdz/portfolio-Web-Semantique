@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE portfolio SYSTEM "portfolio.dtd">
+<!--
+    portfolio.xml
+    Source de données principale du portfolio de Riham Kaddour Bakir
+    Web Sémantique - Sup Galilée / Université Sorbonne Paris Nord
+    Structure inspirée du format TMX 1.4 (Translation Memory eXchange)
+    Chaque bloc de contenu est identifié par un id et décliné par langue.
+-->
+<portfolio version="1.0" defaultLang="fr">
+
+    <!-- =====================================================================
+         META : Métadonnées du site
+         ===================================================================== -->
+    <meta>
+        <langs>
+            <lang code="fr" label="Français"  dir="ltr" flag="🇫🇷"/>
+            <lang code="en" label="English"   dir="ltr" flag="🇬🇧"/>
+            <lang code="ar" label="العربية"   dir="rtl" flag="🇩🇿"/>
+        </langs>
+
+        <siteTitle>
+            <translation lang="fr">Portfolio – Riham Kaddour Bakir</translation>
+            <translation lang="en">Portfolio – Riham Kaddour Bakir</translation>
+            <translation lang="ar">ملف أعمال – ريهام قدور بكير</translation>
+        </siteTitle>
+
+        <siteDescription>
+            <translation lang="fr">Portfolio professionnel de Riham Kaddour Bakir, ingénieure informatique en alternance chez GRDF, spécialisée en développement web, data analysis et systèmes informatiques.</translation>
+            <translation lang="en">Professional portfolio of Riham Kaddour Bakir, computer engineering student on apprenticeship at GRDF, specialising in web development, data analysis and information systems.</translation>
+            <translation lang="ar">ملف الأعمال المهني لريهام قدور بكير، طالبة هندسة معلوماتية في برنامج التدريب المتناوب بشركة GRDF، متخصصة في تطوير الويب وتحليل البيانات وأنظمة المعلومات.</translation>
+        </siteDescription>
+
+        <keywords>
+            <translation lang="fr">portfolio, développement web, PHP, data analysis, Power BI, SQL, ingénieure informatique, alternance, GRDF, Sup Galilée</translation>
+            <translation lang="en">portfolio, web development, PHP, data analysis, Power BI, SQL, computer engineer, apprenticeship, GRDF, Sup Galilée</translation>
+            <translation lang="ar">ملف أعمال، تطوير الويب، PHP، تحليل البيانات، Power BI، SQL، هندسة المعلوماتية، GRDF</translation>
+        </keywords>
+    </meta>
+
+    <!-- =====================================================================
+         IDENTITY : Informations personnelles
+         ===================================================================== -->
+    <identity>
+        <fullName>Riham Kaddour Bakir</fullName>
+
+        <title>
+            <translation lang="fr">Ingénieure Informatique en Alternance</translation>
+            <translation lang="en">Computer Engineering Apprentice</translation>
+            <translation lang="ar">طالبة هندسة معلوماتية – تدريب متناوب</translation>
+        </title>
+
+        <tagline>
+            <translation lang="fr">Développement · Data · Systèmes — Sup Galilée · Université Sorbonne Paris Nord</translation>
+            <translation lang="en">Development · Data · Systems — Sup Galilée · Université Sorbonne Paris Nord</translation>
+            <translation lang="ar">تطوير · بيانات · أنظمة — Sup Galilée · جامعة سوربون باريس نور</translation>
+        </tagline>
+
+        <photo
+            src="assets/img/riham-photo.jpg"
+            alt_fr="Photo de profil de Riham Kaddour Bakir"
+            alt_en="Profile picture of Riham Kaddour Bakir"
+            alt_ar="صورة الملف الشخصي لريهام قدور بكير"
+        />
+
+        <location>Île-de-France, France</location>
+        <email>kaddourbakirriham@gmail.com</email>
+        <phone>+33 6 95 88 97 44</phone>
+
+        <linkedin
+            url="https://www.linkedin.com/in/riham-kaddour-bakir"
+            label="Riham Kaddour Bakir"
+        />
+        <github
+            url="https://github.com/riham-kb"
+            label="riham-kb"
+        />
+        <portfolio_url>TODO: Remplacer par l'URL du site une fois hébergé</portfolio_url>
+    </identity>
+
+    <!-- =====================================================================
+         ABOUT : Présentation personnelle
+         ===================================================================== -->
+    <about>
+        <sectionTitle>
+            <translation lang="fr">À propos</translation>
+            <translation lang="en">About me</translation>
+            <translation lang="ar">من أنا</translation>
+        </sectionTitle>
+
+        <content lang="fr">Étudiante ingénieure en informatique à Sup Galilée (Université Sorbonne Paris Nord), je suis actuellement en alternance chez GRDF en tant que chargée de mission systèmes informatiques. Passionnée par la data, le développement et les systèmes d'information, j'aime transformer des données brutes en insights exploitables et construire des solutions techniques qui ont un impact concret. Mon double ancrage en développement logiciel et en analyse de données me permet d'avoir une vision transversale des projets informatiques. Je cherche à m'épanouir dans un environnement stimulant, innovant et orienté résultats.</content>
+
+        <content lang="en">I am a computer engineering student at Sup Galilée (Université Sorbonne Paris Nord), currently on an apprenticeship at GRDF as an IT systems project officer. Passionate about data, development and information systems, I enjoy turning raw data into actionable insights and building technical solutions with real-world impact. My dual background in software development and data analysis gives me a cross-functional perspective on IT projects. I thrive in stimulating, innovative and results-driven environments.</content>
+
+        <content lang="ar">أنا طالبة هندسة معلوماتية في مدرسة Sup Galilée (جامعة سوربون باريس نور)، وأعمل حاليًا في برنامج التدريب المتناوب بشركة GRDF بصفة مكلفة بمهام أنظمة المعلومات. أنا شغوفة بالبيانات والتطوير وأنظمة المعلومات، وأستمتع بتحويل البيانات الخام إلى رؤى قابلة للتطبيق وبناء حلول تقنية ذات أثر حقيقي. تجمعي خلفية مزدوجة في تطوير البرمجيات وتحليل البيانات تمنحني رؤية شاملة للمشاريع المعلوماتية. أبحث عن بيئة عمل محفّزة ومبتكرة وموجهة نحو النتائج.</content>
+    </about>
+
+    <!-- =====================================================================
+         EDUCATION : Formation
+         ===================================================================== -->
+    <education>
+        <sectionTitle>
+            <translation lang="fr">Formation</translation>
+            <translation lang="en">Education</translation>
+            <translation lang="ar">التكوين الأكاديمي</translation>
+        </sectionTitle>
+
+        <degree id="edu-1">
+            <institution>
+                <translation lang="fr">École d'ingénieurs Sup Galilée – Université Sorbonne Paris Nord</translation>
+                <translation lang="en">Sup Galilée Engineering School – Université Sorbonne Paris Nord</translation>
+                <translation lang="ar">مدرسة المهندسين Sup Galilée – جامعة سوربون باريس نور</translation>
+            </institution>
+            <diploma>
+                <translation lang="fr">Diplôme d'ingénieur en Informatique (en cours)</translation>
+                <translation lang="en">Engineering degree in Computer Science (in progress)</translation>
+                <translation lang="ar">دبلوم المهندس في المعلوماتية (قيد الإنجاز)</translation>
+            </diploma>
+            <period>2024 – 2027</period>
+            <location_edu>Villetaneuse, France</location_edu>
+            <description>
+                <translation lang="fr">Cycle ingénieur orienté développement logiciel, data, systèmes et réseaux, génie logiciel. Formation en alternance avec un rythme d'un mois sur deux en entreprise.</translation>
+                <translation lang="en">Engineering programme focused on software development, data science, systems and networks, software engineering. Work-study format with alternating months in company.</translation>
+                <translation lang="ar">برنامج هندسي يركز على تطوير البرمجيات والبيانات والأنظمة والشبكات. برنامج تدريب متناوب بمعدل شهر في المؤسسة وشهر في الجامعة.</translation>
+            </description>
+        </degree>
+
+        <degree id="edu-2">
+            <institution>
+                <translation lang="fr">École Supérieure d'Informatique (ESI SBA) – Algérie</translation>
+                <translation lang="en">Higher School of Computer Science (ESI SBA) – Algeria</translation>
+                <translation lang="ar">المدرسة العليا للمعلوماتية (ESI SBA) – الجزائر</translation>
+            </institution>
+            <diploma>
+                <translation lang="fr">Classe préparatoire intégrée – Cycle ingénieur Informatique</translation>
+                <translation lang="en">Integrated preparatory class – Computer Science Engineering cycle</translation>
+                <translation lang="ar">تحضيري متكامل – دورة المهندس في المعلوماتية</translation>
+            </diploma>
+            <period>2021 – 2024</period>
+            <location_edu>Sidi Bel Abbès, Algérie</location_edu>
+            <description>
+                <translation lang="fr">Formation intensive en mathématiques, algorithmique, programmation orientée objet, bases de données et systèmes d'exploitation.</translation>
+                <translation lang="en">Intensive training in mathematics, algorithms, object-oriented programming, databases and operating systems.</translation>
+                <translation lang="ar">تكوين مكثف في الرياضيات والخوارزميات والبرمجة الكائنية وقواعد البيانات وأنظمة التشغيل.</translation>
+            </description>
+        </degree>
+
+        <degree id="edu-3">
+            <institution>
+                <translation lang="fr">Lycée Bessedik Ben Yahia – Sidi M'hamed Ben Ali, Algérie</translation>
+                <translation lang="en">Bessedik Ben Yahia High School – Sidi M'hamed Ben Ali, Algeria</translation>
+                <translation lang="ar">ثانوية بسديق بن يحيى – سيدي محمد بن علي، الجزائر</translation>
+            </institution>
+            <diploma>
+                <translation lang="fr">Baccalauréat Sciences Mathématiques B – Mention Très Bien</translation>
+                <translation lang="en">Baccalauréat in Mathematical Sciences B – Highest Honours</translation>
+                <translation lang="ar">شهادة البكالوريا – علوم رياضية ب – مع مرتبة الشرف العليا</translation>
+            </diploma>
+            <period>2021</period>
+            <location_edu>Sidi M'hamed Ben Ali, Algérie</location_edu>
+            <description>
+                <translation lang="fr">Obtenu avec la mention Très Bien, spécialité mathématiques et sciences de la nature.</translation>
+                <translation lang="en">Obtained with highest honours, specialising in mathematics and natural sciences.</translation>
+                <translation lang="ar">حصلت عليها بمرتبة الشرف العليا، تخصص الرياضيات وعلوم الطبيعة.</translation>
+            </description>
+        </degree>
+    </education>
+
+    <!-- =====================================================================
+         EXPERIENCE : Expériences professionnelles
+         ===================================================================== -->
+    <experience>
+        <sectionTitle>
+            <translation lang="fr">Expérience professionnelle</translation>
+            <translation lang="en">Professional experience</translation>
+            <translation lang="ar">التجربة المهنية</translation>
+        </sectionTitle>
+
+        <position id="exp-1">
+            <company>GRDF – Gaz Réseau Distribution France</company>
+            <role>
+                <translation lang="fr">Chargée de mission Systèmes Informatiques</translation>
+                <translation lang="en">IT Systems Project Officer</translation>
+                <translation lang="ar">مكلفة بمهام أنظمة المعلومات</translation>
+            </role>
+            <period_exp>2024 – 2027 (en cours)</period_exp>
+            <location_exp>Île-de-France, France</location_exp>
+            <contract>
+                <translation lang="fr">Contrat d'apprentissage – Alternance (1 mois/2 en entreprise)</translation>
+                <translation lang="en">Apprenticeship contract – Work-study (1 month in 2 in company)</translation>
+                <translation lang="ar">عقد تدريب متناوب (شهر من كل شهرين في المؤسسة)</translation>
+            </contract>
+            <missions lang="fr">
+                <mission>Analyse de données provenant de bases de données et de systèmes métiers internes (collecte, nettoyage, transformation, structuration)</mission>
+                <mission>Rédaction de requêtes SQL complexes : SELECT, JOIN, GROUP BY, sous-requêtes, agrégations pour l'extraction et l'optimisation des données</mission>
+                <mission>Conception et déploiement de tableaux de bord interactifs sous Power BI (KPI, graphiques, cartes, slicers, rapports automatisés)</mission>
+                <mission>Modélisation sémantique dans Power BI : tables de faits et de dimensions, relations, mesures et indicateurs</mission>
+                <mission>Analyse exploratoire des données (EDA) : identification de tendances, anomalies, indicateurs clés de performance</mission>
+                <mission>Contribution à des projets de Business Intelligence visant à améliorer la prise de décision</mission>
+                <mission>Application de notions réseaux (TCP/IP, adressage IP) dans la compréhension de l'environnement technique de l'entreprise</mission>
+            </missions>
+            <missions lang="en">
+                <mission>Data analysis from internal databases and business systems (collection, cleaning, transformation, structuring)</mission>
+                <mission>Writing complex SQL queries: SELECT, JOIN, GROUP BY, sub-queries, aggregations for data extraction and optimisation</mission>
+                <mission>Design and deployment of interactive Power BI dashboards (KPIs, charts, maps, slicers, automated reports)</mission>
+                <mission>Semantic modelling in Power BI: fact and dimension tables, relationships, measures and indicators</mission>
+                <mission>Exploratory data analysis (EDA): identifying trends, anomalies, and key performance indicators</mission>
+                <mission>Contributing to Business Intelligence projects aimed at improving decision-making</mission>
+                <mission>Applying network concepts (TCP/IP, IP addressing) to understand the company's technical environment</mission>
+            </missions>
+            <missions lang="ar">
+                <mission>تحليل البيانات من قواعد البيانات والأنظمة الداخلية (جمع، تنظيف، تحويل، هيكلة)</mission>
+                <mission>كتابة استعلامات SQL معقدة: SELECT وJOIN وGROUP BY والاستعلامات الفرعية والتجميعات</mission>
+                <mission>تصميم ونشر لوحات معلومات تفاعلية في Power BI (مؤشرات KPI، رسوم بيانية، خرائط، مرشحات، تقارير آلية)</mission>
+                <mission>النمذجة الدلالية في Power BI: جداول الحقائق والأبعاد والعلاقات والمقاييس</mission>
+                <mission>التحليل الاستكشافي للبيانات: تحديد الاتجاهات والشذوذات ومؤشرات الأداء الرئيسية</mission>
+                <mission>المساهمة في مشاريع ذكاء الأعمال لتحسين اتخاذ القرار</mission>
+                <mission>تطبيق مفاهيم الشبكات (TCP/IP، عنونة IP) لفهم البيئة التقنية للمؤسسة</mission>
+            </missions>
+        </position>
+    </experience>
+
+    <!-- =====================================================================
+         SKILLS : Compétences
+         ===================================================================== -->
+    <skills>
+        <sectionTitle>
+            <translation lang="fr">Compétences</translation>
+            <translation lang="en">Skills</translation>
+            <translation lang="ar">المهارات</translation>
+        </sectionTitle>
+
+        <category id="cat-languages" icon="💻">
+            <categoryName>
+                <translation lang="fr">Langages de programmation</translation>
+                <translation lang="en">Programming languages</translation>
+                <translation lang="ar">لغات البرمجة</translation>
+            </categoryName>
+            <skill name="PHP"        level="advanced"/>
+            <skill name="JavaScript" level="advanced"/>
+            <skill name="Java"       level="intermediate"/>
+            <skill name="C"          level="intermediate"/>
+            <skill name="Python"     level="intermediate"/>
+            <skill name="Dart"       level="intermediate"/>
+            <skill name="SQL"        level="advanced"/>
+        </category>
+
+        <category id="cat-data" icon="📊">
+            <categoryName>
+                <translation lang="fr">Data &amp; Business Intelligence</translation>
+                <translation lang="en">Data &amp; Business Intelligence</translation>
+                <translation lang="ar">البيانات وذكاء الأعمال</translation>
+            </categoryName>
+            <skill name="Power BI"          level="advanced"/>
+            <skill name="Data Analysis"     level="advanced"/>
+            <skill name="Data Visualization" level="advanced"/>
+            <skill name="ETL"               level="intermediate"/>
+            <skill name="MySQL"             level="advanced"/>
+            <skill name="phpMyAdmin"        level="advanced"/>
+        </category>
+
+        <category id="cat-frameworks" icon="⚙️">
+            <categoryName>
+                <translation lang="fr">Frameworks &amp; outils</translation>
+                <translation lang="en">Frameworks &amp; tools</translation>
+                <translation lang="ar">أطر العمل والأدوات</translation>
+            </categoryName>
+            <skill name="React.js"    level="intermediate"/>
+            <skill name="Laravel"     level="intermediate"/>
+            <skill name="Flutter"     level="intermediate"/>
+            <skill name="SpringBoot"  level="beginner"/>
+            <skill name="Firebase"    level="intermediate"/>
+            <skill name="Git"         level="advanced"/>
+            <skill name="Figma"       level="intermediate"/>
+            <skill name="Jira"        level="intermediate"/>
+            <skill name="XAMPP"       level="advanced"/>
+        </category>
+
+        <category id="cat-web" icon="🌐">
+            <categoryName>
+                <translation lang="fr">Web &amp; sémantique</translation>
+                <translation lang="en">Web &amp; semantic</translation>
+                <translation lang="ar">الويب والدلالات</translation>
+            </categoryName>
+            <skill name="HTML5 / XHTML" level="advanced"/>
+            <skill name="CSS3"          level="advanced"/>
+            <skill name="XML / DTD"     level="advanced"/>
+            <skill name="XSLT"          level="intermediate"/>
+            <skill name="Schema.org"    level="intermediate"/>
+            <skill name="UML"           level="intermediate"/>
+        </category>
+
+        <category id="cat-soft" icon="🧠">
+            <categoryName>
+                <translation lang="fr">Compétences transversales</translation>
+                <translation lang="en">Soft skills</translation>
+                <translation lang="ar">المهارات الشاملة</translation>
+            </categoryName>
+            <skill name="Algorithmique"           level="advanced"/>
+            <skill name="Résolution de problèmes" level="advanced"/>
+            <skill name="Travail en autonomie"    level="advanced"/>
+            <skill name="Adaptabilité"            level="advanced"/>
+            <skill name="Esprit analytique"       level="advanced"/>
+        </category>
+
+        <category id="cat-languages-human" icon="🗣️">
+            <categoryName>
+                <translation lang="fr">Langues</translation>
+                <translation lang="en">Languages</translation>
+                <translation lang="ar">اللغات</translation>
+            </categoryName>
+            <skill name="Français" level="expert"/>
+            <skill name="Anglais"  level="advanced"/>
+            <skill name="Arabe"    level="expert"/>
+        </category>
+    </skills>
+
+    <!-- =====================================================================
+         PROJECTS : Projets informatiques
+         ===================================================================== -->
+    <projects>
+        <sectionTitle>
+            <translation lang="fr">Projets</translation>
+            <translation lang="en">Projects</translation>
+            <translation lang="ar">المشاريع</translation>
+        </sectionTitle>
+
+        <project id="proj-1" type="web">
+            <projectTitle>
+                <translation lang="fr">Plateforme de gestion des œuvres sociales</translation>
+                <translation lang="en">Social welfare management platform</translation>
+                <translation lang="ar">منصة إدارة الأعمال الاجتماعية</translation>
+            </projectTitle>
+            <period_proj>Fév 2024 – Juin 2024</period_proj>
+            <projectDesc>
+                <translation lang="fr">Application web complète de gestion des aides sociales au sein d'une organisation. Trois espaces distincts : Administrateur (gestion des employés, rôles, règlements), Comité (fonds, programmes sociaux, demandes, rapports annuels) et Employé (authentification sécurisée, suivi des demandes). Architecture MVC avec Laravel, interface réactive avec React.js.</translation>
+                <translation lang="en">Full-featured web application for managing social welfare within an organisation. Three distinct spaces: Administrator (employee management, roles, regulations), Committee (funds, social programmes, requests, annual reports) and Employee (secure authentication, request tracking). MVC architecture with Laravel, reactive interface with React.js.</translation>
+                <translation lang="ar">تطبيق ويب متكامل لإدارة الأعمال الاجتماعية داخل مؤسسة. ثلاثة فضاءات متمايزة: المشرف (إدارة الموظفين والأدوار واللوائح)، اللجنة (الأموال والبرامج الاجتماعية والطلبات والتقارير)، والموظف (مصادقة آمنة وتتبع الطلبات). معمارية MVC مع Laravel وواجهة تفاعلية بـ React.js.</translation>
+            </projectDesc>
+            <techStack>
+                <tech>React.js</tech>
+                <tech>PHP</tech>
+                <tech>Laravel</tech>
+                <tech>MySQL</tech>
+            </techStack>
+        </project>
+
+        <project id="proj-2" type="mobile">
+            <projectTitle>
+                <translation lang="fr">CureLink – Application de gestion pharmaceutique</translation>
+                <translation lang="en">CureLink – Pharmaceutical management application</translation>
+                <translation lang="ar">CureLink – تطبيق إدارة الأدوية</translation>
+            </projectTitle>
+            <period_proj>Nov 2024 – Hackathon 24h</period_proj>
+            <projectDesc>
+                <translation lang="fr">Application mobile développée lors d'un hackathon de 24h. Facilite la gestion des stocks pharmaceutiques, la communication avec les fournisseurs et l'automatisation des commandes. Solution complète conçue et livrée sous contrainte de temps extrême.</translation>
+                <translation lang="en">Mobile application developed during a 24-hour hackathon. Streamlines pharmaceutical inventory management, supplier communication and order automation. Complete solution designed and delivered under extreme time constraints.</translation>
+                <translation lang="ar">تطبيق جوال تم تطويره خلال هاكاثون 24 ساعة. يسهّل إدارة المخزون الصيدلاني والتواصل مع الموردين وأتمتة الطلبات. حل متكامل صُمم وسُلّم في ظروف ضيق الوقت.</translation>
+            </projectDesc>
+            <techStack>
+                <tech>Flutter</tech>
+                <tech>Firebase</tech>
+            </techStack>
+        </project>
+
+        <project id="proj-3" type="algorithm">
+            <projectTitle>
+                <translation lang="fr">Implémentation de l'algorithme de Huffman</translation>
+                <translation lang="en">Huffman coding algorithm implementation</translation>
+                <translation lang="ar">تطبيق خوارزمية ترميز هوفمان</translation>
+            </projectTitle>
+            <period_proj>2025</period_proj>
+            <projectDesc>
+                <translation lang="fr">Implémentation en C de l'algorithme de compression de données de Huffman, avec une interface de test pour l'encodage et le décodage. Projet démontrant la maîtrise de l'algorithmique avancée, des structures de données et de la gestion mémoire en C.</translation>
+                <translation lang="en">C implementation of the Huffman data compression algorithm, with a test interface for encoding and decoding. Project demonstrating mastery of advanced algorithms, data structures and memory management in C.</translation>
+                <translation lang="ar">تطبيق بلغة C لخوارزمية ضغط البيانات لهوفمان، مع واجهة اختبار للترميز وفك الترميز. يُبرز المشروع إتقان الخوارزميات المتقدمة وهياكل البيانات وإدارة الذاكرة بلغة C.</translation>
+            </projectDesc>
+            <techStack>
+                <tech>C</tech>
+                <tech>Python</tech>
+                <tech>Algorithmique</tech>
+            </techStack>
+        </project>
+
+        <project id="proj-4" type="mobile">
+            <projectTitle>
+                <translation lang="fr">CARGO – Application mobile de location de voitures</translation>
+                <translation lang="en">CARGO – Car rental mobile application</translation>
+                <translation lang="ar">CARGO – تطبيق جوال لتأجير السيارات</translation>
+            </projectTitle>
+            <period_proj>Fév 2023 – Juin 2023</period_proj>
+            <projectDesc>
+                <translation lang="fr">Application mobile dédiée aux agences de location de voitures. Gestion du catalogue de véhicules, réservations en ligne, suivi en temps réel et interface agence. Design réalisé sur Figma, développement en Flutter avec Firebase comme backend.</translation>
+                <translation lang="en">Mobile application dedicated to car rental agencies. Vehicle catalogue management, online bookings, real-time tracking and agency interface. Design created in Figma, developed in Flutter with Firebase as the backend.</translation>
+                <translation lang="ar">تطبيق جوال مخصص لوكالات تأجير السيارات. إدارة كتالوج المركبات والحجوزات عبر الإنترنت والتتبع الفوري وواجهة الوكالة. صمم في Figma وطُور بـ Flutter مع Firebase كخادم خلفي.</translation>
+            </projectDesc>
+            <techStack>
+                <tech>Flutter</tech>
+                <tech>Firebase</tech>
+                <tech>Figma</tech>
+                <tech>Git</tech>
+            </techStack>
+        </project>
+
+        <project id="proj-5" type="desktop">
+            <projectTitle>
+                <translation lang="fr">Mini-projet Java POO – Gestion universitaire</translation>
+                <translation lang="en">Java OOP mini-project – University management</translation>
+                <translation lang="ar">مشروع Java POO – إدارة المرافق الجامعية</translation>
+            </projectTitle>
+            <period_proj>Mai 2023 – Juin 2023</period_proj>
+            <projectDesc>
+                <translation lang="fr">Interface de gestion des salles et du matériel universitaire, conçue et développée en Java orienté objet. Maquettage sous Figma, développement avec NetBeans IDE. Application des principes POO : encapsulation, héritage, polymorphisme.</translation>
+                <translation lang="en">University room and equipment management interface, designed and developed in object-oriented Java. Mockups created in Figma, developed with NetBeans IDE. Application of OOP principles: encapsulation, inheritance, polymorphism.</translation>
+                <translation lang="ar">واجهة لإدارة القاعات والمعدات الجامعية، مصممة ومطورة بلغة Java الكائنية. النماذج الأولية في Figma والتطوير ببيئة NetBeans IDE. تطبيق مبادئ البرمجة الكائنية: التغليف والوراثة وتعدد الأشكال.</translation>
+            </projectDesc>
+            <techStack>
+                <tech>Java</tech>
+                <tech>NetBeans IDE</tech>
+                <tech>Figma</tech>
+            </techStack>
+        </project>
+    </projects>
+
+    <!-- =====================================================================
+         VIDEO : Présentation vidéo multilingue
+         ===================================================================== -->
+    <video>
+        <sectionTitle>
+            <translation lang="fr">Présentation vidéo</translation>
+            <translation lang="en">Video presentation</translation>
+            <translation lang="ar">تقديم بالفيديو</translation>
+        </sectionTitle>
+        <!--
+            TODO: Remplacer les youtubeId ci-dessous par vos vrais identifiants YouTube.
+            Pour obtenir un youtubeId : regardez l'URL d'une vidéo YouTube :
+            https://www.youtube.com/watch?v=XXXXXXXXXXX  →  youtubeId = XXXXXXXXXXX
+            Vous pouvez aussi utiliser une seule vidéo avec pistes de sous-titres WebVTT.
+        -->
+        <videoItem
+            lang="fr"
+            youtubeId="TODO_YOUTUBE_ID_FR"
+            title="Présentation de mon portfolio en français"
+            subtitleSrc="subtitles/portfolio-fr.vtt"
+        />
+        <videoItem
+            lang="en"
+            youtubeId="TODO_YOUTUBE_ID_EN"
+            title="Portfolio presentation in English"
+            subtitleSrc="subtitles/portfolio-en.vtt"
+        />
+        <videoItem
+            lang="ar"
+            youtubeId="TODO_YOUTUBE_ID_AR"
+            title="تقديم ملف الأعمال بالعربية"
+            subtitleSrc="subtitles/portfolio-ar.vtt"
+        />
+    </video>
+
+    <!-- =====================================================================
+         CONTACT
+         ===================================================================== -->
+    <contact>
+        <sectionTitle>
+            <translation lang="fr">Contact</translation>
+            <translation lang="en">Contact</translation>
+            <translation lang="ar">التواصل</translation>
+        </sectionTitle>
+        <contactIntro>
+            <translation lang="fr">Je suis ouverte à toute opportunité professionnelle, stage, projet collaboratif ou simplement à un échange. N'hésitez pas à me contacter !</translation>
+            <translation lang="en">I am open to any professional opportunity, internship, collaborative project, or simply a conversation. Do not hesitate to reach out!</translation>
+            <translation lang="ar">أنا منفتحة على أي فرصة مهنية، أو تدريب، أو مشروع تعاوني، أو مجرد تبادل للآراء. لا تتردد في التواصل معي!</translation>
+        </contactIntro>
+        <availability>
+            <translation lang="fr">Disponible pour un contrat d'apprentissage de 24 mois à partir de septembre 2025 (rythme : 1 mois sur 2 en entreprise).</translation>
+            <translation lang="en">Available for a 24-month apprenticeship contract from September 2025 (schedule: 1 month in 2 in company).</translation>
+            <translation lang="ar">متاحة لعقد تدريب متناوب مدته 24 شهرًا اعتبارًا من سبتمبر 2025 (إيقاع: شهر من كل شهرين في المؤسسة).</translation>
+        </availability>
+    </contact>
+
+</portfolio>
