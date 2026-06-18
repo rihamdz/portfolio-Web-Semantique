@@ -15,16 +15,14 @@
 
     PARAMÈTRES :
         $lang       : code langue (fr / en / ar)
-        $section    : section à rendre (all / skills / projects / education / ...)
+   
 -->
 <xsl:stylesheet
     version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns="http://www.w3.org/1999/xhtml">
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:output
         method="html"
-        version="5"
         encoding="UTF-8"
         indent="yes"
         omit-xml-declaration="yes"
@@ -118,7 +116,7 @@
                  aria-valuemin="0"
                  aria-valuemax="100"
                  aria-label="{@name} – {$levelPct}%">
-                <div class="skill-bar-fill" style="width:{$levelPct}%"></div>
+                <div class="skill-bar-fill" style="width:{$levelPct}%">&#8203;</div>
             </div>
         </li>
     </xsl:template>
@@ -213,7 +211,7 @@
         <li class="timeline-item" id="{@id}"
             itemscope="itemscope"
             itemtype="http://schema.org/EducationalOccupationalCredential">
-            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-marker" aria-hidden="true">&#8203;</div>
             <div class="timeline-content">
                 <time class="timeline-period" itemprop="dateCreated">
                     <xsl:value-of select="period"/>
