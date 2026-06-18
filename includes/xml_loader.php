@@ -170,7 +170,12 @@ function xslt_render(string $section, string $lang): string
         throw new RuntimeException($msg);
     }
 
-    return $result;
+    // method="html" injecte un <!DOCTYPE html> en tête du fragment.
+    // On le supprime : ce fragment est inséré DANS une page déjà bien formée.
+    $result = preg_replace('/^<!DOCTYPE[^>]*>\s*/i', '', $result);
+    $result = preg_replace('/\s+xmlns="[^"]*"/', '', $result);
+
+    return trim($result);
 }
 
 // ─── Fonctions haut niveau par section ───────────────────────────────────────
