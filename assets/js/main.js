@@ -26,7 +26,6 @@
         const revealEls = document.querySelectorAll('.reveal');
 
         if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-            // Accessibilité : afficher immédiatement sans animation
             revealEls.forEach(el => el.classList.add('revealed'));
             return;
         }
@@ -36,14 +35,22 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('revealed');
-                        observer.unobserve(entry.target); // une seule fois
+                        observer.unobserve(entry.target);
                     }
                 });
             },
-            { threshold: 0.08 } // se déclenche dès 8% visible
+            { threshold: 0, rootMargin: '0px' }
         );
 
-        revealEls.forEach(el => observer.observe(el));
+        revealEls.forEach(el => {
+            // Si l'élément est déjà dans le viewport au chargement, révéler immédiatement
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('revealed');
+            } else {
+                observer.observe(el);
+            }
+        });
     }
 
     // ─── 2. ANIMATION DES CARTES [data-anim="slide-in"] ─────────────────────
