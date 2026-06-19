@@ -155,20 +155,25 @@ function xslt_render(string $section, string $lang): string
     $proc->setParameter('', 'lang',    $lang);
     $proc->setParameter('', 'section', $section);
 
-    // Transformation du XML
+    // Transformation du XML → DOMDocument puis sérialisation HTML
+    // (transformToXML avec method="xml" génère des <div/> auto-fermants
+    //  invalides en HTML, ce qui casse la mise en page de la timeline)
     $xml    = load_xml();
-    $result = $proc->transformToXML($xml);
+    $domResult = $proc->transformToDoc($xml);
 
     $errors = libxml_get_errors();
     libxml_clear_errors();
 
-    if ($result === false) {
+    if ($domResult === false) {
         $msg = 'Erreur XSLT lors de la transformation de la section "' . $section . '".';
         if (!empty($errors)) {
             $msg .= ' ' . $errors[0]->message;
         }
         throw new RuntimeException($msg);
     }
+
+    // saveHTML sérialise en HTML5 (pas de <div/> auto-fermants)
+    $result = $domResult->saveHTML();
 
     // method="html" injecte un <!DOCTYPE html> en tête du fragment.
     // On le supprime : ce fragment est inséré DANS une page déjà bien formée.
