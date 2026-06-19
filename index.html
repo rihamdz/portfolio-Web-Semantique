@@ -1,141 +1,191 @@
-<!DOCTYPE html>
-<html lang="fr"
-      prefix="
-        foaf: http://xmlns.com/foaf/0.1/
-        dc: http://purl.org/dc/elements/1.1/
-        schema: https://schema.org/
-      ">
+ <!DOCTYPE html>
+<html lang="fr" dir="ltr"
+      prefix="schema: https://schema.org/ foaf: http://xmlns.com/foaf/0.1/ dc: http://purl.org/dc/elements/1.1/">
 
 <head>
   <meta charset="UTF-8">
-  
-  <!-- Dublin Core -->
-  <title property="dc:title">Portfolio – Riham Kaddour Bakir</title>
-  <meta property="dc:creator" content="Riham Kaddour Bakir">
-  <meta property="dc:description" content="Portfolio Web sémantique">
-  <meta property="dc:language" content="fr">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio – Riham Kaddour Bakir</title>
+  <meta name="description" content="Portfolio multilingue de Riham Kaddour Bakir">
+  <meta name="keywords" content="portfolio, web, data, XML, RDFa, Sup Galilée">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Lien vers la source XML -->
+  <link rel="alternate" type="application/xml" href="portfolio.xml" title="Données XML du portfolio">
+
 </head>
 
-<body typeof="foaf:Document">
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
-  <!-- ===== PERSON FOAF ===== -->
-  <section typeof="foaf:Person" about="#riham">
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <!-- NOM -->
-    <h1 property="foaf:name">
-      Riham Kaddour Bakir
-    </h1>
-
-    <!-- JOB -->
-    <p property="schema:jobTitle">
-      Ingénieure Informatique en Alternance
-    </p>
-
-    <!-- DESCRIPTION -->
-    <p property="dc:description">
-      Développement · Data · Systèmes — Sup Galilée
-    </p>
-
-    <!-- EMAIL -->
-    <p>
-      Email :
-      <a property="foaf:mbox"
-         href="mailto:kaddourbakirriham@gmail.com">
-        kaddourbakirriham@gmail.com
+      <a class="header-logo" href="#home" aria-label="Accueil"
+         typeof="schema:Person"
+         about="#riham">
+        <span class="logo-first" property="schema:givenName">Riham</span>
+        <span class="logo-last" property="schema:familyName">KB</span>
       </a>
-    </p>
 
-    <!-- SITE -->
-    <p>
-      Portfolio :
-      #
-        Mon site
-      </a>
-    </p>
+      <button class="nav-toggle"
+              type="button"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="main-nav">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
 
-    <!-- RESEAUX -->
-    <p>
-      GitHub :
-      <a property="schema:sameAs"
-         href="https://github.com/riham-kb">
-         github.com/riham-kb
-      </a>
-    </p>
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-menu">
+          <li><a class="nav-link" href="#about">À propos</a></li>
+          <li><a class="nav-link" href="#education">Formation</a></li>
+          <li><a class="nav-link" href="#experience">Expérience</a></li>
+          <li><a class="nav-link" href="#skills">Compétences</a></li>
+          <li><a class="nav-link" href="#projects">Projets</a></li>
+          <li><a class="nav-link" href="#video">Vidéo</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-    <p>
-      LinkedIn :
-      <a property="schema:sameAs"
-         href="https://www.linkedin.com/in/riham-kaddour-bakir">
-         LinkedIn
-      </a>
-    </p>
-
-  </section>
-
-  <!-- ===== EDUCATION ===== -->
-  <section>
-    <h2>Formation</h2>
-
-    <div typeof="schema:EducationalOccupationalCredential">
-
-      <p property="dc:title">
-        Diplôme d’ingénieur Informatique
-      </p>
-
-      <p property="schema:recognizedBy">
-        Sup Galilée – Université Sorbonne Paris Nord
-      </p>
-
-      <p property="dc:date">
-        2024 – 2027
-      </p>
+      <div class="lang-switcher" aria-label="Choix de langue">
+        <button class="lang-btn lang-btn--active" type="button" data-lang="fr">
+          <span class="lang-flag">🇫🇷</span>
+          <span class="lang-code">FR</span>
+        </button>
+        <button class="lang-btn" type="button" data-lang="en">
+          <span class="lang-flag">🇬🇧</span>
+          <span class="lang-code">EN</span>
+        </button>
+        <button class="lang-btn" type="button" data-lang="ar">
+          <span class="lang-flag">🇩🇿</span>
+          <span class="lang-code">AR</span>
+        </button>
+      </div>
 
     </div>
-  </section>
+  </header>
 
-  <!-- ===== EXPERIENCE ===== -->
-  <section>
-    <h2>Expérience</h2>
+  <main id="main-content">
 
-    <div typeof="schema:OrganizationRole">
+    <!-- HERO / IDENTITÉ RDFa -->
+    <section id="home"
+             class="hero"
+             vocab="https://schema.org/"
+             typeof="Person"
+             about="#riham">
 
-      <p property="schema:roleName">
-        Chargée de mission Systèmes Informatiques
-      </p>
+      <div class="hero-bg-grid" aria-hidden="true"></div>
 
-      <p property="schema:memberOf">
-        GRDF
-      </p>
+      <div class="container hero-inner">
 
-      <p property="dc:description">
-        Analyse de données, SQL, Power BI
-      </p>
+        <div class="hero-photo-wrapper" id="hero-photo-zone">
+          <div class="hero-photo-fallback" aria-hidden="true">RKB</div>
+        </div>
+
+        <div class="hero-text">
+          <p class="hero-eyebrow">Portfolio Web Sémantique</p>
+
+          <h1 class="hero-name" property="name">
+            <span class="hero-name-first" id="hero-firstname">Riham</span>
+            <span class="hero-name-last" id="hero-lastname"> Kaddour Bakir</span>
+          </h1>
+
+          <p class="hero-title" id="hero-title" property="jobTitle">
+            Ingénieure Informatique en Alternance
+          </p>
+
+          <p class="hero-badge">
+            <span class="badge-dot"></span>
+            <span id="hero-tagline" property="description">
+              Développement · Data · Systèmes — Sup Galilée · Université Sorbonne Paris Nord
+            </span>
+          </p>
+
+          <meta property="email" content="kaddourbakirriham@gmail.com">
+          <meta property="telephone" content="+33 6 95 88 97 44">
+          <meta property="address" content="Île-de-France, France">
+
+          <link property="sameAs" href="https://www.linkedin.com/in/riham-kaddour-bakir">
+          <link property="sameAs" href="https://github.com/riham-kb">
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">Voir mes projets</a>
+            <a class="btn btn-outline" href="#contact">Me contacter</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <span class="scroll-arrow"></span>
+      </div>
+    </section>
+
+    <!-- CONTENU DYNAMIQUE généré par main.js -->
+    <div id="dynamic-content"></div>
+
+  </main>
+
+  <!-- FOOTER RDFa -->
+  <footer class="site-footer"
+          vocab="https://schema.org/"
+          typeof="Person"
+          about="#riham">
+
+    <div class="container footer-inner">
+
+      <div>
+        <p class="footer-name" property="name">Riham Kaddour Bakir</p>
+        <p class="footer-built">Réalisé avec HTML, CSS, JavaScript, XML et RDFa.</p>
+      </div>
+
+      <div class="footer-contact">
+        <a class="footer-link"
+           href="mailto:kaddourbakirriham@gmail.com"
+           property="email">
+          ✉ kaddourbakirriham@gmail.com
+        </a>
+
+        <a class="footer-link"
+           href="tel:+33695889744"
+           property="telephone">
+          ☎ +33 6 95 88 97 44
+        </a>
+
+        <a class="footer-link"
+           href="https://www.linkedin.com/in/riham-kaddour-bakir"
+           property="sameAs">
+          in LinkedIn
+        </a>
+
+        <a class="footer-link"
+           href="https://github.com/riham-kb"
+           property="sameAs">
+          ⌥ GitHub
+        </a>
+      </div>
+
+      <div class="footer-nav">
+        <a class="footer-nav-link" href="#about">À propos</a>
+        <a class="footer-nav-link" href="#education">Formation</a>
+        <a class="footer-nav-link" href="#projects">Projets</a>
+        <a class="footer-nav-link" href="#contact">Contact</a>
+      </div>
 
     </div>
-  </section>
 
-  <!-- ===== PROJET ===== -->
-  <section>
-    <h2>Projet</h2>
-
-    <div typeof="schema:SoftwareSourceCode">
-
-      <p property="dc:title">
-        Application Web de gestion sociale
-      </p>
-
-      <p property="dc:description">
-        Application développée avec Laravel et React
-      </p>
-
-      <p property="schema:programmingLanguage">
-        PHP, React, MySQL
-      </p>
-
+    <div class="container footer-copy">
+      <p>© <span id="year"></span> — Tous droits réservés.</p>
+      <p class="footer-academic">Portfolio Web Sémantique – Sup Galilée / Université Sorbonne Paris Nord</p>
     </div>
-  </section>
+  </footer>
 
+  <script src="main.js"></script>
 </body>
-</html>
+</html> 
