@@ -243,31 +243,24 @@ require_once 'includes/header.php';
         </section>
 
         <!-- ════════════════════════════════════════════════════════
-             EDUCATION : Généré par XSLT
+             EDUCATION : Généré par XSLT (reveal géré dans le XSL)
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal revealed">
-            <?= $htmlEducation ?>
-        </div>
+        <?= $htmlEducation ?>
 
         <!-- ════════════════════════════════════════════════════════
-             EXPERIENCE : Généré par XSLT
+             EXPERIENCE : Généré par XSLT (reveal géré dans le XSL)
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal revealed">
-            <?= $htmlExperience ?>
-        </div>
+        <?= $htmlExperience ?>
 
         <!-- ════════════════════════════════════════════════════════
-             SKILLS : Généré par XSLT
+             SKILLS : Généré par XSLT (reveal géré dans le XSL)
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal revealed">
-            <?= $htmlSkills ?>
-        </div>
+        <?= $htmlSkills ?>
 
         <!-- ════════════════════════════════════════════════════════
              PROJECTS : Généré par XSLT
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal">
-            <?= $htmlProjects ?>
+        <?= $htmlProjects ?>
         </div>
 
         <!-- ════════════════════════════════════════════════════════
