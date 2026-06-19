@@ -472,9 +472,9 @@
             <translation lang="ar">أنا منفتحة على أي فرصة مهنية، أو تدريب، أو مشروع تعاوني، أو مجرد تبادل للآراء. لا تتردد في التواصل معي!</translation>
         </contactIntro>
         <availability>
-            <translation lang="fr">Disponible pour un contrat d'apprentissage de 24 mois à partir de septembre 2025 (rythme : 1 mois sur 2 en entreprise).</translation>
-            <translation lang="en">Available for a 24-month apprenticeship contract from September 2025 (schedule: 1 month in 2 in company).</translation>
-            <translation lang="ar">متاحة لعقد تدريب متناوب مدته 24 شهرًا اعتبارًا من سبتمبر 2025 (إيقاع: شهر من كل شهرين في المؤسسة).</translation>
+            <translation lang="fr">Disponible.</translation>
+            <translation lang="en">Available .</translation>
+            <translation lang="ar">متاحة </translation>
         </availability>
     </contact>
 
