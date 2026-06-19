@@ -781,18 +781,19 @@ code {
     content:       '';
     position:      absolute;
     left:          0.6rem;
-    top:           0;
-    bottom:        0;
+    top:           0.6rem;              /* Aligne avec le premier marqueur */
+    bottom:        0.6rem;             /* S'arrête proprement en bas */
     width:         2px;
     background:    linear-gradient(180deg, var(--color-accent), var(--color-accent2), transparent);
     border-radius: var(--radius-full);
 }
 
 .timeline-item {
-    position:      relative;
+    position:      relative;           /* ✅ FIX : ancrage du marker absolu */
     margin-bottom: var(--space-12);
     display:       block;
     width:         100%;
+    box-sizing:    border-box;
 }
 
 .timeline-item:last-child {
@@ -801,14 +802,16 @@ code {
 
 .timeline-marker {
     position:      absolute;
-    left:          -1.9rem;
-    top:           1rem;
+    left:          -1.93rem;           /* (2.5rem padding - 14px marker/2) ≈ centré sur la ligne */
+    top:           1.4rem;             /* Aligné visuellement sur le titre du diplôme */
     width:         14px;
     height:        14px;
     background:    var(--color-accent);
     border-radius: var(--radius-full);
     border:        3px solid var(--color-bg);
     box-shadow:    0 0 12px var(--color-accent-glow);
+    z-index:       1;                  /* Passe au-dessus de la ligne */
+    flex-shrink:   0;
 }
 
 .timeline-content {
@@ -820,6 +823,7 @@ code {
     padding:       var(--space-6);
     transition:    all var(--transition);
     box-sizing:    border-box;
+    overflow:      hidden;             /* Évite tout débordement interne */
 }
 
 .timeline-content:hover {
