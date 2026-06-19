@@ -1,7 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr"
-      prefix="schema: https://schema.org/
-              foaf: http://xmlns.com/foaf/0.1/
+      prefixaf: http://xmlns.com/foaf/0.1/      prefix="schema: https://schema.org/
               dc: http://purl.org/dc/elements/1.1/">
 
 <head>
@@ -9,16 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Portfolio – Riham Kaddour Bakir</title>
-  <meta name="description" content="Portfolio multilingue de Riham Kaddour Bakir">
-  <meta name="keywords" content="portfolio, web, data, XML, RDFa, Sup Galilée">
+  <meta name="description" content="Portfolio professionnel de Riham Kaddour Bakir, ingénieure informatique en alternance chez GRDF, spécialisée en développement web, data analysis et systèmes informatiques.">
+  <meta name="keywords" content="portfolio, web, data, XML, RDFa, FOAF, Dublin Core, schema.org, Sup Galilée">
 
-  <!-- Métadonnées Dublin Core : description du document HTML -->
+  <!-- Dublin Core : métadonnées du document -->
   <meta property="dc:title" content="Portfolio – Riham Kaddour Bakir">
+  <meta property="dc:description" content="Portfolio professionnel de Riham Kaddour Bakir, ingénieure informatique en alternance chez GRDF, spécialisée en développement web, data analysis et systèmes informatiques.">
   <meta property="dc:creator" content="Riham Kaddour Bakir">
-  <meta property="dc:description" content="Portfolio multilingue de Riham Kaddour Bakir présentant son parcours, ses compétences, ses expériences et ses projets.">
   <meta property="dc:language" content="fr">
   <meta property="dc:type" content="Text">
-  <meta property="dc:subject" content="Portfolio, Web sémantique, RDFa, FOAF, Dublin Core, schema.org">
+  <meta property="dc:subject" content="Portfolio, RDFa, FOAF, Dublin Core, Web sémantique">
   <meta property="dc:rights" content="Tous droits réservés">
 
   <link rel="stylesheet" href="style.css">
@@ -29,6 +29,24 @@
 </head>
 
 <body>
+  <!-- Bloc RDFa explicite pour garantir la détection de FOAF par l'agent OpenLink -->
+  <div about="#riham" typeof="foaf:Person schema:Person" style="display:none;">
+    <span property="foaf:name schema:name">Riham Kaddour Bakir</span>
+    <span property="schema:givenName">Riham</span>
+    <span property="schema:familyName">Kaddour Bakir</span>
+    <span property="schema:jobTitle">Ingénieure Informatique en Alternance</span>
+    <span property="schema:description">Étudiante ingénieure en informatique à Sup Galilée, en alternance chez GRDF, spécialisée en développement web, data analysis et systèmes informatiques.</span>
+
+    <meta property="schema:email" content="kaddourbakirriham@gmail.com">
+    <meta property="schema:telephone" content="+33 6 95 88 97 44">
+    <meta property="schema:address" content="Île-de-France, France">
+
+    <link rel="foaf:mbox" href="mailto:kaddourbakirriham@gmail.com">
+    <link rel="foaf:homepage schema:url" href="https://rihamdz.github.io/portfolio-Web-Semantique/">
+    <link rel="foaf:account schema:sameAs" href="https://www.linkedin.com/in/riham-kaddour-bakir">
+    <link rel="foaf:account schema:sameAs" href="https://github.com/riham-kb">
+  </div>
+
   <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
   <header class="site-header">
@@ -116,13 +134,11 @@
             </span>
           </p>
 
-          <!-- Données RDFa cachées mais lisibles par les agents -->
           <meta property="schema:email" content="kaddourbakirriham@gmail.com">
           <meta property="schema:telephone" content="+33 6 95 88 97 44">
           <meta property="schema:address" content="Île-de-France, France">
           <meta property="schema:url" content="https://rihamdz.github.io/portfolio-Web-Semantique/">
 
-          <!-- FOAF : identité numérique -->
           <link rel="foaf:mbox" href="mailto:kaddourbakirriham@gmail.com">
           <link rel="foaf:homepage schema:url" href="https://rihamdz.github.io/portfolio-Web-Semantique/">
           <link rel="foaf:account schema:sameAs" href="https://www.linkedin.com/in/riham-kaddour-bakir">
@@ -146,7 +162,7 @@
 
   </main>
 
-  <!-- FOOTER RDFa : rappel identité + liens FOAF/schema -->
+  <!-- FOOTER RDFa -->
   <footer class="site-footer"
           typeof="schema:Person foaf:Person"
           about="#riham">
@@ -161,8 +177,7 @@
       <div class="footer-contact">
         <a class="footer-link"
            href="mailto:kaddourbakirriham@gmail.com"
-           rel="foaf:mbox"
-           property="schema:email">
+           rel="foaf:mbox">
           ✉ kaddourbakirriham@gmail.com
         </a>
 
@@ -203,3 +218,4 @@
   <script src="main.js"></script>
 </body>
 </html>
+
