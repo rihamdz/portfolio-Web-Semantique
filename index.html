@@ -8,22 +8,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title property="dc:title">Portfolio – Riham Kaddour Bakir</title>
-
-  <meta name="description"
-        property="dc:description"
-        content="Portfolio multilingue de Riham Kaddour Bakir">
-
+  <title>Portfolio – Riham Kaddour Bakir</title>
+  <meta name="description" content="Portfolio multilingue de Riham Kaddour Bakir">
   <meta name="keywords" content="portfolio, web, data, XML, RDFa, Sup Galilée">
 
+  <!-- Métadonnées Dublin Core : description du document HTML -->
+  <meta property="dc:title" content="Portfolio – Riham Kaddour Bakir">
   <meta property="dc:creator" content="Riham Kaddour Bakir">
+  <meta property="dc:description" content="Portfolio multilingue de Riham Kaddour Bakir présentant son parcours, ses compétences, ses expériences et ses projets.">
   <meta property="dc:language" content="fr">
   <meta property="dc:type" content="Text">
+  <meta property="dc:subject" content="Portfolio, Web sémantique, RDFa, FOAF, Dublin Core, schema.org">
   <meta property="dc:rights" content="Tous droits réservés">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+  <!-- Lien vers la source XML -->
   <link rel="alternate" type="application/xml" href="portfolio.xml" title="Données XML du portfolio">
 </head>
 
@@ -34,7 +35,7 @@
     <div class="container header-inner">
 
       <a class="header-logo" href="#home" aria-label="Accueil"
-         typeof="schema:Person"
+         typeof="schema:Person foaf:Person"
          about="#riham">
         <span class="logo-first" property="schema:givenName">Riham</span>
         <span class="logo-last" property="schema:familyName">KB</span>
@@ -82,11 +83,10 @@
 
   <main id="main-content">
 
-    <!-- HERO / IDENTITÉ RDFa -->
+    <!-- HERO / IDENTITÉ RDFa : schema.org + FOAF -->
     <section id="home"
              class="hero"
-             vocab="https://schema.org/"
-             typeof="Person"
+             typeof="schema:Person foaf:Person"
              about="#riham">
 
       <div class="hero-bg-grid" aria-hidden="true"></div>
@@ -100,28 +100,33 @@
         <div class="hero-text">
           <p class="hero-eyebrow">Portfolio Web Sémantique</p>
 
-          <h1 class="hero-name" property="name">
-            <span class="hero-name-first" id="hero-firstname">Riham</span>
-            <span class="hero-name-last" id="hero-lastname"> Kaddour Bakir</span>
+          <h1 class="hero-name" property="schema:name foaf:name">
+            <span class="hero-name-first" id="hero-firstname" property="schema:givenName">Riham</span>
+            <span class="hero-name-last" id="hero-lastname" property="schema:familyName"> Kaddour Bakir</span>
           </h1>
 
-          <p class="hero-title" id="hero-title" property="jobTitle">
+          <p class="hero-title" id="hero-title" property="schema:jobTitle">
             Ingénieure Informatique en Alternance
           </p>
 
           <p class="hero-badge">
             <span class="badge-dot"></span>
-            <span id="hero-tagline" property="description">
+            <span id="hero-tagline" property="schema:description">
               Développement · Data · Systèmes — Sup Galilée · Université Sorbonne Paris Nord
             </span>
           </p>
 
-          <meta property="email" content="kaddourbakirriham@gmail.com">
-          <meta property="telephone" content="+33 6 95 88 97 44">
-          <meta property="address" content="Île-de-France, France">
+          <!-- Données RDFa cachées mais lisibles par les agents -->
+          <meta property="schema:email" content="kaddourbakirriham@gmail.com">
+          <meta property="schema:telephone" content="+33 6 95 88 97 44">
+          <meta property="schema:address" content="Île-de-France, France">
+          <meta property="schema:url" content="https://rihamdz.github.io/portfolio-Web-Semantique/">
 
-          <link property="sameAs" href="https://www.linkedin.com/in/riham-kaddour-bakir">
-          <link property="sameAs" href="https://github.com/riham-kb">
+          <!-- FOAF : identité numérique -->
+          <link rel="foaf:mbox" href="mailto:kaddourbakirriham@gmail.com">
+          <link rel="foaf:homepage schema:url" href="https://rihamdz.github.io/portfolio-Web-Semantique/">
+          <link rel="foaf:account schema:sameAs" href="https://www.linkedin.com/in/riham-kaddour-bakir">
+          <link rel="foaf:account schema:sameAs" href="https://github.com/riham-kb">
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="#projects">Voir mes projets</a>
@@ -141,41 +146,41 @@
 
   </main>
 
-  <!-- FOOTER RDFa -->
+  <!-- FOOTER RDFa : rappel identité + liens FOAF/schema -->
   <footer class="site-footer"
-          vocab="https://schema.org/"
-          typeof="Person"
+          typeof="schema:Person foaf:Person"
           about="#riham">
 
     <div class="container footer-inner">
 
       <div>
-        <p class="footer-name" property="name">Riham Kaddour Bakir</p>
+        <p class="footer-name" property="schema:name foaf:name">Riham Kaddour Bakir</p>
         <p class="footer-built">Réalisé avec HTML, CSS, JavaScript, XML et RDFa.</p>
       </div>
 
       <div class="footer-contact">
         <a class="footer-link"
            href="mailto:kaddourbakirriham@gmail.com"
-           property="email">
+           rel="foaf:mbox"
+           property="schema:email">
           ✉ kaddourbakirriham@gmail.com
         </a>
 
         <a class="footer-link"
            href="tel:+33695889744"
-           property="telephone">
+           property="schema:telephone">
           ☎ +33 6 95 88 97 44
         </a>
 
         <a class="footer-link"
            href="https://www.linkedin.com/in/riham-kaddour-bakir"
-           property="sameAs">
+           rel="foaf:account schema:sameAs">
           in LinkedIn
         </a>
 
         <a class="footer-link"
            href="https://github.com/riham-kb"
-           property="sameAs">
+           rel="foaf:account schema:sameAs">
           ⌥ GitHub
         </a>
       </div>
@@ -197,4 +202,4 @@
 
   <script src="main.js"></script>
 </body>
-</html> 
+</html>
