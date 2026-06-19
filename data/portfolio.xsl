@@ -17,7 +17,7 @@
         $section    : section à rendre (all / skills / projects / education / ...)
  -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:output method="html" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+<xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 <!--  Paramètres injectés par PHP  -->
 <xsl:param name="lang">fr</xsl:param>
 <xsl:param name="section">all</xsl:param>
@@ -56,7 +56,7 @@
          SKILLS : Grille de compétences par catégorie
          ================================================================  -->
 <xsl:template match="skills">
-<section id="skills" class="section" aria-labelledby="skills-title">
+<section id="skills" class="section reveal" aria-labelledby="skills-title">
 <div class="container">
 <h2 id="skills-title" class="section-title">
 <xsl:value-of select="sectionTitle/translation[@lang=$lang]"/>
@@ -107,7 +107,7 @@
          PROJECTS : Grille de projets avec filtrage possible par JS
          ================================================================  -->
 <xsl:template match="projects">
-<section id="projects" class="section" aria-labelledby="projects-title">
+<section id="projects" class="section reveal" aria-labelledby="projects-title">
 <div class="container">
 <h2 id="projects-title" class="section-title">
 <xsl:value-of select="sectionTitle/translation[@lang=$lang]"/>
@@ -170,7 +170,7 @@
          EDUCATION : Timeline de formation
          ================================================================  -->
 <xsl:template match="education">
-<section id="education" class="section" aria-labelledby="education-title">
+<section id="education" class="section reveal" aria-labelledby="education-title">
 <div class="container">
 <h2 id="education-title" class="section-title">
 <xsl:value-of select="sectionTitle/translation[@lang=$lang]"/>
@@ -207,7 +207,7 @@
          EXPERIENCE : Liste d'expériences
          ================================================================  -->
 <xsl:template match="experience">
-<section id="experience" class="section" aria-labelledby="experience-title">
+<section id="experience" class="section reveal" aria-labelledby="experience-title">
 <div class="container">
 <h2 id="experience-title" class="section-title">
 <xsl:value-of select="sectionTitle/translation[@lang=$lang]"/>
