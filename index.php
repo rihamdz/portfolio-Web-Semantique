@@ -245,21 +245,21 @@ require_once 'includes/header.php';
         <!-- ════════════════════════════════════════════════════════
              EDUCATION : Généré par XSLT
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal">
+        <div class="reveal revealed">
             <?= $htmlEducation ?>
         </div>
 
         <!-- ════════════════════════════════════════════════════════
              EXPERIENCE : Généré par XSLT
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal">
+        <div class="reveal revealed">
             <?= $htmlExperience ?>
         </div>
 
         <!-- ════════════════════════════════════════════════════════
              SKILLS : Généré par XSLT
              ════════════════════════════════════════════════════════ -->
-        <div class="reveal">
+        <div class="reveal revealed">
             <?= $htmlSkills ?>
         </div>
 
