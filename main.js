@@ -1,27 +1,148 @@
-
 /**
- * Version statique du portfolio.
- * Remplace PHP + XSLTProcessor par JavaScript côté navigateur.
- * Les données restent dans portfolio.xml.
+ * main.js — version statique avec annotations RDFa
+ *
+ * Rôle :
+ * - Charger portfolio.xml
+ * - Gérer la langue (fr/en/ar)
+ * - Générer les sections HTML dynamiquement
+ * - Ajouter des attributs RDFa dans les contenus rendus
  */
 (function () {
   'use strict';
 
-  const state = { lang: localStorage.getItem('portfolioLang') || 'fr', xml: null };
-
-  const labels = {
-    fr: { dir:'ltr', nav:{about:'À propos',education:'Formation',experience:'Expérience',skills:'Compétences',projects:'Projets',video:'Vidéo',contact:'Contact'}, cta:{projects:'Voir mes projets',contact:'Me contacter'}, footer:{built:'Réalisé avec HTML, CSS, JavaScript et XML.', rights:'Tous droits réservés.'}, filter:{all:'Tous', algorithm:'Algo'}, form:{note:'Formulaire statique : utilisez les liens de contact ci-dessous.'}},
-    en: { dir:'ltr', nav:{about:'About',education:'Education',experience:'Experience',skills:'Skills',projects:'Projects',video:'Video',contact:'Contact'}, cta:{projects:'View my projects',contact:'Contact me'}, footer:{built:'Built with HTML, CSS, JavaScript and XML.', rights:'All rights reserved.'}, filter:{all:'All', algorithm:'Algo'}, form:{note:'Static form: please use the contact links below.'}},
-    ar: { dir:'rtl', nav:{about:'من أنا',education:'التكوين',experience:'التجربة',skills:'المهارات',projects:'المشاريع',video:'فيديو',contact:'التواصل'}, cta:{projects:'عرض مشاريعي',contact:'تواصل معي'}, footer:{built:'مُنجز بـ HTML وCSS وJavaScript وXML.', rights:'جميع الحقوق محفوظة.'}, filter:{all:'الكل', algorithm:'خوارزميات'}, form:{note:'النموذج ثابت: يرجى استخدام روابط التواصل أدناه.'}}
+  const state = {
+    lang: localStorage.getItem('portfolioLang') || 'fr',
+    xml: null
   };
 
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const text = (node, fallback = '') => node ? node.textContent.trim() : fallback;
-  const attr = (node, name, fallback = '') => node ? (node.getAttribute(name) || fallback) : fallback;
-  const t = (parent, path, lang = state.lang) => text(parent.querySelector(`${path} > translation[lang="${lang}"]`));
-  const contentLang = (parent, path, lang = state.lang) => text(parent.querySelector(`${path}[lang="${lang}"]`));
-  const esc = (s) => String(s || '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+  const labels = {
+    fr: {
+      dir: 'ltr',
+      nav: {
+        about: 'À propos',
+        education: 'Formation',
+        experience: 'Expérience',
+        skills: 'Compétences',
+        projects: 'Projets',
+        video: 'Vidéo',
+        contact: 'Contact'
+      },
+      cta: {
+        projects: 'Voir mes projets',
+        contact: 'Me contacter'
+      },
+      footer: {
+        built: 'Réalisé avec HTML, CSS, JavaScript, XML et RDFa.',
+        rights: 'Tous droits réservés.'
+      },
+      filter: {
+        all: 'Tous',
+        algorithm: 'Algo'
+      },
+      form: {
+        note: 'Formulaire statique : utilisez les liens de contact ci-dessous.'
+      },
+      misc: {
+        technologies: 'Technologies utilisées',
+        missions: 'Missions'
+      }
+    },
+    en: {
+      dir: 'ltr',
+      nav: {
+        about: 'About',
+        education: 'Education',
+        experience: 'Experience',
+        skills: 'Skills',
+        projects: 'Projects',
+        video: 'Video',
+        contact: 'Contact'
+      },
+      cta: {
+        projects: 'View my projects',
+        contact: 'Contact me'
+      },
+      footer: {
+        built: 'Built with HTML, CSS, JavaScript, XML and RDFa.',
+        rights: 'All rights reserved.'
+      },
+      filter: {
+        all: 'All',
+        algorithm: 'Algo'
+      },
+      form: {
+        note: 'soon ...'
+      },
+      misc: {
+        technologies: 'Technologies used',
+        missions: 'Tasks'
+      }
+    },
+    ar: {
+      dir: 'rtl',
+      nav: {
+        about: 'من أنا',
+        education: 'التكوين',
+        experience: 'التجربة',
+        skills: 'المهارات',
+        projects: 'المشاريع',
+        video: 'فيديو',
+        contact: 'التواصل'
+      },
+      cta: {
+        projects: 'عرض مشاريعي',
+        contact: 'تواصل معي'
+      },
+      footer: {
+        built: 'مُنجز بـ HTML وCSS وJavaScript وXML وRDFa.',
+        rights: 'جميع الحقوق محفوظة.'
+      },
+      filter: {
+        all: 'الكل',
+        algorithm: 'خوارزميات'
+      },
+      form: {
+        note: 'النموذج ثابت: يرجى استخدام روابط التواصل أدناه.'
+      },
+      misc: {
+        technologies: 'التقنيات المستخدمة',
+        missions: 'المهام'
+      }
+    }
+  };
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+  function text(node, fallback = '') {
+    return node ? node.textContent.trim() : fallback;
+  }
+
+  function attr(node, name, fallback = '') {
+    return node ? (node.getAttribute(name) || fallback) : fallback;
+  }
+
+  function t(parent, path, lang = state.lang) {
+    if (!parent) return '';
+    return text(parent.querySelector(`${path} > translation[lang="${lang}"]`));
+  }
+
+  function contentLang(parent, path, lang = state.lang) {
+    if (!parent) return '';
+    return text(parent.querySelector(`${path}[lang="${lang}"]`));
+  }
+
+  function esc(value) {
+    return String(value || '').replace(/[&<>"']/g, function (char) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char];
+    });
+  }
 
   document.addEventListener('DOMContentLoaded', init);
 
@@ -34,28 +155,40 @@
       const response = await fetch('portfolio.xml');
       const xmlText = await response.text();
       state.xml = new DOMParser().parseFromString(xmlText, 'application/xml');
+
+      const parserError = state.xml.querySelector('parsererror');
+      if (parserError) {
+        throw new Error('portfolio.xml contient une erreur XML.');
+      }
+
       renderAll();
-    } catch (e) {
-      $('#dynamic-content').innerHTML = '<section class="section"><div class="container"><p>Erreur : impossible de charger portfolio.xml.</p></div></section>';
-      console.error(e);
+    } catch (error) {
+      console.error(error);
+      $('#dynamic-content').innerHTML = `
+        <section class="section">
+          <div class="container">
+            <p>Erreur : impossible de charger ou parser <code>portfolio.xml</code>.</p>
+          </div>
+        </section>`;
     }
   }
 
   function initMenu() {
-    const btn = $('.nav-toggle');
+    const button = $('.nav-toggle');
     const nav = $('#main-nav');
-    if (!btn || !nav) return;
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
+    if (!button || !nav) return;
+
+    button.addEventListener('click', function () {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('open', !expanded);
     });
   }
 
   function initLanguageButtons() {
-    $$('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        state.lang = btn.dataset.lang;
+    $$('.lang-btn').forEach(function (button) {
+      button.addEventListener('click', function () {
+        state.lang = button.dataset.lang;
         localStorage.setItem('portfolioLang', state.lang);
         renderAll();
       });
@@ -63,29 +196,43 @@
   }
 
   function applyLabels() {
-    const L = labels[state.lang];
+    const current = labels[state.lang];
     document.documentElement.lang = state.lang;
-    document.documentElement.dir = L.dir;
-    $$('[data-i18n]').forEach(el => {
-      const path = el.dataset.i18n.split('.');
+    document.documentElement.dir = current.dir;
+
+    $$('[data-i18n]').forEach(function (element) {
+      const path = element.dataset.i18n.split('.');
       let value = labels[state.lang];
-      path.forEach(p => value = value && value[p]);
-      if (value) el.textContent = value;
+
+      path.forEach(function (segment) {
+        value = value && value[segment];
+      });
+
+      if (value) {
+        element.textContent = value;
+      }
     });
-    $$('.lang-btn').forEach(btn => btn.classList.toggle('lang-btn--active', btn.dataset.lang === state.lang));
+
+    $$('.lang-btn').forEach(function (button) {
+      button.classList.toggle('lang-btn--active', button.dataset.lang === state.lang);
+    });
   }
 
   function renderAll() {
     applyLabels();
+
     const root = state.xml.querySelector('portfolio');
-    const identity = root.querySelector('identity');
     const meta = root.querySelector('meta');
+    const identity = root.querySelector('identity');
 
     document.title = t(meta, 'siteTitle') || 'Portfolio – Riham Kaddour Bakir';
-    const desc = t(meta, 'siteDescription');
-    if ($('meta[name="description"]')) $('meta[name="description"]').setAttribute('content', desc);
+
+    const description = t(meta, 'siteDescription');
+    const metaDesc = $('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', description);
 
     renderHero(identity);
+
     $('#dynamic-content').innerHTML = [
       renderAbout(root.querySelector('about'), identity),
       renderEducation(root.querySelector('education')),
@@ -95,10 +242,12 @@
       renderVideo(root.querySelector('video')),
       renderContact(root.querySelector('contact'), identity)
     ].join('');
+
     renderFooterContact(identity);
     initProjectFilters();
     initReveal();
     animateSkillBars();
+    setActiveNavOnScroll();
   }
 
   function renderHero(identity) {
@@ -113,77 +262,289 @@
     const src = attr(photo, 'src');
     const alt = attr(photo, `alt_${state.lang}`, fullName);
     $('#hero-photo-zone').innerHTML = src
-      ? `<img class="hero-photo" src="${esc(src)}" alt="${esc(alt)}" onerror="this.outerHTML='<div class=&quot;hero-photo-fallback&quot;>RKB</div>'">`
-      : '<div class="hero-photo-fallback">RKB</div>';
+      ? `<img class="hero-photo" src="${esc(src)}" alt="${esc(alt)}" property="image" onerror="this.outerHTML='<div class=&quot;hero-photo-fallback&quot; aria-hidden=&quot;true&quot;>RKB</div>'">`
+      : '<div class="hero-photo-fallback" aria-hidden="true">RKB</div>';
+
+    const heroSection = $('#home');
+    if (heroSection) {
+      heroSection.setAttribute('vocab', 'https://schema.org/');
+      heroSection.setAttribute('typeof', 'Person');
+      heroSection.setAttribute('about', '#riham');
+    }
+
+    ensureMeta('#home', 'email', text(identity.querySelector('email')));
+    ensureMeta('#home', 'telephone', text(identity.querySelector('phone')));
+    ensureMeta('#home', 'address', text(identity.querySelector('location')));
+    ensureMeta('#home', 'url', text(identity.querySelector('portfolio_url')));
+    ensureSameAs('#home', attr(identity.querySelector('linkedin'), 'url'));
+    ensureSameAs('#home', attr(identity.querySelector('github'), 'url'));
+  }
+
+  function ensureMeta(rootSelector, property, content) {
+    if (!content) return;
+    const root = $(rootSelector);
+    if (!root) return;
+
+    let meta = root.querySelector(`meta[property="${property}"]`);
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('property', property);
+      root.appendChild(meta);
+    }
+    meta.setAttribute('content', content);
+  }
+
+  function ensureSameAs(rootSelector, href) {
+    if (!href) return;
+    const root = $(rootSelector);
+    if (!root) return;
+
+    const already = Array.from(root.querySelectorAll('link[property="sameAs"]')).some(function (link) {
+      return link.getAttribute('href') === href;
+    });
+
+    if (!already) {
+      const link = document.createElement('link');
+      link.setAttribute('property', 'sameAs');
+      link.setAttribute('href', href);
+      root.appendChild(link);
+    }
   }
 
   function renderAbout(about, identity) {
-    return `<section id="about" class="section reveal"><div class="container about-grid">
-      <div><h2 class="section-title">${esc(t(about, 'sectionTitle'))}</h2><p class="about-paragraph">${esc(contentLang(about, 'content'))}</p>
-        <dl class="about-info">
-          <dt>📍</dt><dd>${esc(text(identity.querySelector('location')))}</dd>
-          <dt>✉</dt><dd><a href="mailto:${esc(text(identity.querySelector('email')))}">${esc(text(identity.querySelector('email')))}</a></dd>
-          <dt>☎</dt><dd><a href="tel:${esc(text(identity.querySelector('phone')).replace(/\s/g,''))}">${esc(text(identity.querySelector('phone')))}</a></dd>
-        </dl></div>
-      <div class="about-highlights">
-        <div class="highlight-card"><span class="highlight-icon">💻</span><strong>Web</strong><span>HTML CSS JS XML</span></div>
-        <div class="highlight-card"><span class="highlight-icon">📊</span><strong>Data</strong><span>SQL Power BI</span></div>
-        <div class="highlight-card"><span class="highlight-icon">⚙️</span><strong>Systèmes</strong><span>Réseaux & outils</span></div>
-        <div class="highlight-card"><span class="highlight-icon">🌍</span><strong>Multilingue</strong><span>FR / EN / AR</span></div>
-      </div></div></section>`;
+    const fullName = text(identity.querySelector('fullName'));
+    const location = text(identity.querySelector('location'));
+    const email = text(identity.querySelector('email'));
+    const phone = text(identity.querySelector('phone'));
+
+    return `
+      <section id="about" class="section reveal" vocab="https://schema.org/" typeof="Person" about="#riham">
+        <div class="container about-grid">
+          <div>
+            <h2 class="section-title">${esc(t(about, 'sectionTitle'))}</h2>
+            <p class="about-paragraph" property="description">${esc(contentLang(about, 'content'))}</p>
+
+            <dl class="about-info">
+              <dt>📍</dt>
+              <dd property="address">${esc(location)}</dd>
+
+              <dt>✉</dt>
+              <dd>
+                <a href="mailto:${esc(email)}" property="email">${esc(email)}</a>
+              </dd>
+
+              <dt>☎</dt>
+              <dd>
+                <a href="tel:${esc(phone.replace(/\s/g, ''))}" property="telephone">${esc(phone)}</a>
+              </dd>
+            </dl>
+
+            <meta property="name" content="${esc(fullName)}">
+          </div>
+
+          <div class="about-highlights">
+            <div class="highlight-card" typeof="DefinedTerm">
+              <span class="highlight-icon">💻</span>
+              <strong property="name">Web</strong>
+              <span property="description">HTML CSS JS XML</span>
+            </div>
+            <div class="highlight-card" typeof="DefinedTerm">
+              <span class="highlight-icon">📊</span>
+              <strong property="name">Data</strong>
+              <span property="description">SQL Power BI</span>
+            </div>
+            <div class="highlight-card" typeof="DefinedTerm">
+              <span class="highlight-icon">⚙️</span>
+              <strong property="name">Systèmes</strong>
+              <span property="description">Réseaux &amp; outils</span>
+            </div>
+            <div class="highlight-card" typeof="DefinedTerm">
+              <span class="highlight-icon">🌍</span>
+              <strong property="name">Multilingue</strong>
+              <span property="description">FR / EN / AR</span>
+            </div>
+          </div>
+        </div>
+      </section>`;
   }
 
   function renderEducation(education) {
-    const items = $$('degree', education).map(d => `<li class="timeline-item" id="${esc(attr(d,'id'))}"><div class="timeline-marker"></div><div class="timeline-content">
-      <time class="timeline-period">${esc(text(d.querySelector('period')))}</time>
-      <h3 class="timeline-diploma">${esc(t(d,'diploma'))}</h3>
-      <p class="timeline-institution">${esc(t(d,'institution'))}</p>
-      <p class="timeline-location">${esc(text(d.querySelector('location_edu')))}</p>
-      <p class="timeline-desc">${esc(t(d,'description'))}</p>
-    </div></li>`).join('');
-    return `<section id="education" class="section reveal"><div class="container"><h2 class="section-title">${esc(t(education,'sectionTitle'))}</h2><ol class="timeline">${items}</ol></div></section>`;
+    const items = $$('degree', education).map(function (degree) {
+      return `
+        <li class="timeline-item" id="${esc(attr(degree, 'id'))}" typeof="EducationalOccupationalCredential">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <time class="timeline-period" property="dateCreated">${esc(text(degree.querySelector('period')))}</time>
+            <h3 class="timeline-diploma" property="name">${esc(t(degree, 'diploma'))}</h3>
+            <p class="timeline-institution" property="recognizedBy">${esc(t(degree, 'institution'))}</p>
+            <p class="timeline-location" property="spatial">${esc(text(degree.querySelector('location_edu')))}</p>
+            <p class="timeline-desc" property="description">${esc(t(degree, 'description'))}</p>
+          </div>
+        </li>`;
+    }).join('');
+
+    return `
+      <section id="education" class="section reveal" vocab="https://schema.org/">
+        <div class="container">
+          <h2 class="section-title">${esc(t(education, 'sectionTitle'))}</h2>
+          <ol class="timeline">${items}</ol>
+        </div>
+      </section>`;
   }
 
   function renderExperience(experience) {
-    const cards = $$('position', experience).map(p => {
-      const missions = $$(`missions[lang="${state.lang}"] mission`, p).map(m => `<li class="exp-mission">${esc(text(m))}</li>`).join('');
-      return `<article class="experience-card" id="${esc(attr(p,'id'))}"><div class="exp-header"><div class="exp-company-block">
-        <h3 class="exp-role">${esc(t(p,'role'))}</h3><p class="exp-company">${esc(text(p.querySelector('company')))}</p></div>
-        <div class="exp-meta"><span class="exp-period">${esc(text(p.querySelector('period_exp')))}</span><span class="exp-location">${esc(text(p.querySelector('location_exp')))}</span><span class="exp-contract">${esc(t(p,'contract'))}</span></div></div>
-        <ul class="exp-missions">${missions}</ul></article>`;
+    const current = labels[state.lang];
+
+    const cards = $$('position', experience).map(function (position) {
+      const missions = $$(`missions[lang="${state.lang}"] mission`, position).map(function (mission) {
+        return `<li class="exp-mission" property="description">${esc(text(mission))}</li>`;
+      }).join('');
+
+      return `
+        <article class="experience-card" id="${esc(attr(position, 'id'))}" vocab="https://schema.org/" typeof="OrganizationRole">
+          <div class="exp-header">
+            <div class="exp-company-block">
+              <h3 class="exp-role" property="roleName">${esc(t(position, 'role'))}</h3>
+              <p class="exp-company" property="memberOf">${esc(text(position.querySelector('company')))}</p>
+            </div>
+            <div class="exp-meta">
+              <span class="exp-period" property="startDate">${esc(text(position.querySelector('period_exp')))}</span>
+              <span class="exp-location" property="location">${esc(text(position.querySelector('location_exp')))}</span>
+              <span class="exp-contract" property="description">${esc(t(position, 'contract'))}</span>
+            </div>
+          </div>
+          <ul class="exp-missions" aria-label="${esc(current.misc.missions)}">
+            ${missions}
+          </ul>
+        </article>`;
     }).join('');
-    return `<section id="experience" class="section reveal"><div class="container"><h2 class="section-title">${esc(t(experience,'sectionTitle'))}</h2>${cards}</div></section>`;
+
+    return `
+      <section id="experience" class="section reveal" vocab="https://schema.org/">
+        <div class="container">
+          <h2 class="section-title">${esc(t(experience, 'sectionTitle'))}</h2>
+          ${cards}
+        </div>
+      </section>`;
   }
 
   function renderSkills(skills) {
-    const pct = { beginner:25, intermediate:55, advanced:80, expert:100 };
-    const cats = $$('category', skills).map(c => {
-      const list = $$('skill', c).map(s => {
-        const level = attr(s, 'level', 'intermediate');
-        return `<li class="skill-item" data-level="${esc(level)}" data-pct="${pct[level] || 50}"><span class="skill-name">${esc(attr(s,'name'))}</span><div class="skill-bar" role="progressbar" aria-valuenow="${pct[level] || 50}" aria-valuemin="0" aria-valuemax="100"><div class="skill-bar-fill" style="width:0%"></div></div></li>`;
+    const percentages = {
+      beginner: 25,
+      intermediate: 55,
+      advanced: 80,
+      expert: 100
+    };
+
+    const categories = $$('category', skills).map(function (category) {
+      const list = $$('skill', category).map(function (skill) {
+        const level = attr(skill, 'level', 'intermediate');
+        const percent = percentages[level] || 50;
+        const name = attr(skill, 'name');
+
+        return `
+          <li class="skill-item" data-level="${esc(level)}" data-pct="${percent}" typeof="DefinedTerm">
+            <span class="skill-name" property="name">${esc(name)}</span>
+            <meta property="description" content="${esc(level)}">
+            <meta property="knowledgeLevel" content="${percent}%">
+            <div class="skill-bar" role="progressbar" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(name)} – ${percent}%">
+              <div class="skill-bar-fill" style="width:0%"></div>
+            </div>
+          </li>`;
       }).join('');
-      return `<div class="skill-category" data-category-id="${esc(attr(c,'id'))}"><h3 class="skill-category-title"><span class="skill-icon">${esc(attr(c,'icon'))}</span>${esc(t(c,'categoryName'))}</h3><ul class="skill-list">${list}</ul></div>`;
+
+      return `
+        <div class="skill-category" data-category-id="${esc(attr(category, 'id'))}" typeof="ItemList">
+          <h3 class="skill-category-title" property="name">
+            <span class="skill-icon" aria-hidden="true">${esc(attr(category, 'icon'))}</span>
+            ${esc(t(category, 'categoryName'))}
+          </h3>
+          <ul class="skill-list">${list}</ul>
+        </div>`;
     }).join('');
-    return `<section id="skills" class="section reveal"><div class="container"><h2 class="section-title">${esc(t(skills,'sectionTitle'))}</h2><div class="skills-grid">${cats}</div></div></section>`;
+
+    return `
+      <section id="skills" class="section reveal" vocab="https://schema.org/">
+        <div class="container">
+          <h2 class="section-title">${esc(t(skills, 'sectionTitle'))}</h2>
+          <div class="skills-grid">${categories}</div>
+        </div>
+      </section>`;
   }
 
   function renderProjects(projects) {
-    const L = labels[state.lang];
-    const filters = `<div class="project-filters"><button class="filter-btn active" data-filter="all" type="button">${L.filter.all}</button><button class="filter-btn" data-filter="web" type="button">Web</button><button class="filter-btn" data-filter="mobile" type="button">Mobile</button><button class="filter-btn" data-filter="algorithm" type="button">${L.filter.algorithm}</button><button class="filter-btn" data-filter="desktop" type="button">Desktop</button></div>`;
-    const cards = $$('project', projects).map(p => {
-      const techs = $$('techStack tech', p).map(tech => `<span class="tech-badge">${esc(text(tech))}</span>`).join('');
-      const link = p.querySelector('projectLink') ? `<a class="project-link" href="${esc(attr(p.querySelector('projectLink'),'url'))}" target="_blank" rel="noopener noreferrer">${esc(attr(p.querySelector('projectLink'),'label'))}</a>` : '';
-      return `<article class="project-card" data-type="${esc(attr(p,'type'))}" id="${esc(attr(p,'id'))}"><div class="project-card-header"><h3 class="project-title">${esc(t(p,'projectTitle'))}</h3><span class="project-period">${esc(text(p.querySelector('period_proj')))}</span></div><p class="project-desc">${esc(t(p,'projectDesc'))}</p><div class="tech-stack">${techs}</div>${link}</article>`;
+    const current = labels[state.lang];
+
+    const filters = `
+      <div class="project-filters" role="group" aria-label="Filtrer les projets">
+        <button class="filter-btn active" data-filter="all" type="button">${esc(current.filter.all)}</button>
+        <button class="filter-btn" data-filter="web" type="button">Web</button>
+        <button class="filter-btn" data-filter="mobile" type="button">Mobile</button>
+        <button class="filter-btn" data-filter="algorithm" type="button">${esc(current.filter.algorithm)}</button>
+        <button class="filter-btn" data-filter="desktop" type="button">Desktop</button>
+      </div>`;
+
+    const cards = $$('project', projects).map(function (project) {
+      const techs = $$('techStack tech', project).map(function (tech) {
+        return `<span class="tech-badge" property="programmingLanguage">${esc(text(tech))}</span>`;
+      }).join('');
+
+      let linkHtml = '';
+      const projectLink = project.querySelector('projectLink');
+      if (projectLink) {
+        const url = attr(projectLink, 'url');
+        const label = attr(projectLink, 'label') || url;
+        linkHtml = `
+          <a class="project-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer" property="codeRepository">
+            ${esc(label)}
+          </a>`;
+      }
+
+      return `
+        <article class="project-card" data-type="${esc(attr(project, 'type'))}" id="${esc(attr(project, 'id'))}" vocab="https://schema.org/" typeof="SoftwareSourceCode">
+          <div class="project-card-header">
+            <h3 class="project-title" property="name">${esc(t(project, 'projectTitle'))}</h3>
+            <span class="project-period" property="dateCreated">${esc(text(project.querySelector('period_proj')))}</span>
+          </div>
+          <p class="project-desc" property="description">${esc(t(project, 'projectDesc'))}</p>
+          <div class="tech-stack" aria-label="${esc(current.misc.technologies)}">
+            ${techs}
+          </div>
+          ${linkHtml}
+        </article>`;
     }).join('');
-    return `<section id="projects" class="section reveal"><div class="container"><h2 class="section-title">${esc(t(projects,'sectionTitle'))}</h2>${filters}<div class="projects-grid">${cards}</div></div></section>`;
+
+    return `
+      <section id="projects" class="section reveal" vocab="https://schema.org/">
+        <div class="container">
+          <h2 class="section-title">${esc(t(projects, 'sectionTitle'))}</h2>
+          ${filters}
+          <div class="projects-grid">${cards}</div>
+        </div>
+      </section>`;
   }
 
   function renderVideo(video) {
     const item = video.querySelector(`videoItem[lang="${state.lang}"]`) || video.querySelector('videoItem');
-    const id = attr(item, 'youtubeId');
+    const youtubeId = attr(item, 'youtubeId');
     const title = attr(item, 'title');
-    const valid = id && !id.startsWith('TODO');
-    return `<section id="video" class="section reveal"><div class="container"><h2 class="section-title">${esc(t(video,'sectionTitle'))}</h2>${valid ? `<div class="video-wrapper"><iframe class="video-iframe" src="https://www.youtube.com/embed/${esc(id)}" title="${esc(title)}" allowfullscreen></iframe></div>` : `<div class="video-placeholder"><p class="video-todo">TODO : remplacer le youtubeId dans portfolio.xml pour afficher la vidéo.</p></div>`}</div></section>`;
+    const valid = youtubeId && !youtubeId.startsWith('TODO');
+
+    return `
+      <section id="video" class="section reveal" vocab="https://schema.org/">
+        <div class="container">
+          <h2 class="section-title">${esc(t(video, 'sectionTitle'))}</h2>
+          ${valid
+            ? `<div class="video-wrapper" typeof="VideoObject">
+                 <meta property="name" content="${esc(title)}">
+                 <meta property="embedUrl" content="https://www.youtube.com/embed/${esc(youtubeId)}">
+                 <iframe class="video-iframe" src="https://www.youtube.com/embed/${esc(youtubeId)}" title="${esc(title)}" allowfullscreen></iframe>
+               </div>`
+            : `<div class="video-placeholder">
+                 <p class="video-todo">TODO  soon ....</p>
+               </div>`}
+        </div>
+      </section>`;
   }
 
   function renderContact(contact, identity) {
@@ -191,45 +552,126 @@
     const phone = text(identity.querySelector('phone'));
     const linkedin = identity.querySelector('linkedin');
     const github = identity.querySelector('github');
-    return `<section id="contact" class="section reveal"><div class="container contact-grid"><div><h2 class="section-title">${esc(t(contact,'sectionTitle'))}</h2><p class="contact-intro">${esc(t(contact,'contactIntro'))}</p><p class="contact-availability">${esc(t(contact,'availability'))}</p><div class="contact-links">
-      <a class="contact-link-item" href="mailto:${esc(email)}"><span class="contact-icon">✉</span>${esc(email)}</a>
-      <a class="contact-link-item" href="tel:${esc(phone.replace(/\s/g,''))}"><span class="contact-icon">☎</span>${esc(phone)}</a>
-      <a class="contact-link-item" href="${esc(attr(linkedin,'url'))}" target="_blank"><span class="contact-icon">in</span>${esc(attr(linkedin,'label'))}</a>
-      <a class="contact-link-item" href="${esc(attr(github,'url'))}" target="_blank"><span class="contact-icon">⌥</span>${esc(attr(github,'label'))}</a>
-    </div></div><div class="contact-form-wrapper"><p class="contact-form-note">${labels[state.lang].form.note}</p></div></div></section>`;
+
+    return `
+      <section id="contact" class="section reveal" vocab="https://schema.org/" typeof="Person" about="#riham">
+        <div class="container contact-grid">
+          <div>
+            <h2 class="section-title">${esc(t(contact, 'sectionTitle'))}</h2>
+            <p class="contact-intro">${esc(t(contact, 'contactIntro'))}</p>
+            <p class="contact-availability" property="description">${esc(t(contact, 'availability'))}</p>
+            <div class="contact-links">
+              <a class="contact-link-item" href="mailto:${esc(email)}" property="email">
+                <span class="contact-icon">✉</span>
+                ${esc(email)}
+              </a>
+              <a class="contact-link-item" href="tel:${esc(phone.replace(/\s/g, ''))}" property="telephone">
+                <span class="contact-icon">☎</span>
+                ${esc(phone)}
+              </a>
+              <a class="contact-link-item" href="${esc(attr(linkedin, 'url'))}" target="_blank" rel="noopener noreferrer" property="sameAs">
+                <span class="contact-icon">in</span>
+                ${esc(attr(linkedin, 'label'))}
+              </a>
+              <a class="contact-link-item" href="${esc(attr(github, 'url'))}" target="_blank" rel="noopener noreferrer" property="sameAs">
+                <span class="contact-icon">⌥</span>
+                ${esc(attr(github, 'label'))}
+              </a>
+            </div>
+          </div>
+          <div class="contact-form-wrapper">
+            <p class="contact-form-note">${esc(labels[state.lang].form.note)}</p>
+          </div>
+        </div>
+      </section>`;
   }
 
   function renderFooterContact(identity) {
+    const container = $('#footer-contact');
+    if (!container) return;
+
     const email = text(identity.querySelector('email'));
     const phone = text(identity.querySelector('phone'));
-    $('#footer-contact').innerHTML = `<a class="footer-link" href="mailto:${esc(email)}">✉ ${esc(email)}</a><a class="footer-link" href="tel:${esc(phone.replace(/\s/g,''))}">☎ ${esc(phone)}</a>`;
+
+    container.innerHTML = `
+      <a class="footer-link" href="mailto:${esc(email)}" property="email">✉ ${esc(email)}</a>
+      <a class="footer-link" href="tel:${esc(phone.replace(/\s/g, ''))}" property="telephone">☎ ${esc(phone)}</a>`;
   }
 
   function initProjectFilters() {
-    $$('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        $$('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        $$('.project-card').forEach(card => card.classList.toggle('hidden', filter !== 'all' && card.dataset.type !== filter));
+    $$('.filter-btn').forEach(function (button) {
+      button.addEventListener('click', function () {
+        $$('.filter-btn').forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+        $$('.project-card').forEach(function (card) {
+          const hide = filter !== 'all' && card.dataset.type !== filter;
+          card.classList.toggle('hidden', hide);
+        });
       });
     });
   }
 
   function initReveal() {
     const sections = $$('.reveal');
-    if (!('IntersectionObserver' in window)) { sections.forEach(s => s.classList.add('revealed')); return; }
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach(function (section) {
+        section.classList.add('revealed');
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
     }, { threshold: 0.12 });
-    sections.forEach(s => observer.observe(s));
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
   }
 
   function animateSkillBars() {
-    setTimeout(() => $$('.skill-item').forEach(item => {
-      const fill = $('.skill-bar-fill', item);
-      if (fill) fill.style.width = (item.dataset.pct || 50) + '%';
-    }), 150);
+    setTimeout(function () {
+      $$('.skill-item').forEach(function (item) {
+        const fill = $('.skill-bar-fill', item);
+        if (fill) {
+          fill.style.width = (item.dataset.pct || 50) + '%';
+        }
+      });
+    }, 150);
+  }
+
+  function setActiveNavOnScroll() {
+    const sections = $$('main section[id]');
+    const navLinks = $$('.nav-link');
+
+    if (!sections.length || !navLinks.length) return;
+
+    function updateActiveLink() {
+      let currentId = '';
+
+      sections.forEach(function (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          currentId = section.id;
+        }
+      });
+
+      navLinks.forEach(function (link) {
+        const target = link.getAttribute('href').replace('#', '');
+        link.classList.toggle('active', target === currentId);
+      });
+    }
+
+    updateActiveLink();
+    window.removeEventListener('scroll', updateActiveLink);
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
   }
 })();
-

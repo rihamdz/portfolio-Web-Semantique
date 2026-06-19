@@ -56,12 +56,7 @@
             <translation lang="ar">تطوير · بيانات · أنظمة — Sup Galilée · جامعة سوربون باريس نور</translation>
         </tagline>
 
-        <photo
-            src="assets/img/riham-photo.jpg"
-            alt_fr="Photo de profil de Riham Kaddour Bakir"
-            alt_en="Profile picture of Riham Kaddour Bakir"
-            alt_ar="صورة الملف الشخصي لريهام قدور بكير"
-        />
+       
 
         <location>Île-de-France, France</location>
         <email>kaddourbakirriham@gmail.com</email>
