@@ -267,8 +267,8 @@ code {
     font-size:     var(--text-3xl);
     margin-bottom: var(--space-12);
     position:      relative;
-    display:       block;          /* FIX : inline-block réduisait la largeur du container */
-    width:         fit-content;    /* garde la soulignure courte sous le texte uniquement */
+    display:       block;        /* FIX : était inline-block, réduisait la largeur du parent */
+    width:         fit-content;  /* la soulignure reste courte sous le texte */
     color:         var(--color-heading);
 }
 
@@ -673,8 +673,6 @@ code {
 
 /* Effet de révélation au scroll (classe ajoutée par JS) */
 .reveal {
-    display:          block;          /* FIX : garantit que le div prend 100% de largeur */
-    width:            100%;
     opacity:          0;
     transform:        translateY(30px);
     transition:       opacity var(--transition-slow), transform var(--transition-slow);
@@ -773,12 +771,26 @@ code {
 /* ════════════════════════════════════════════════════════════════
    10. TIMELINE (EDUCATION)
    ════════════════════════════════════════════════════════════════ */
+/* FIX XSLT : method="xml" supprime le display block natif des éléments HTML.
+   On force explicitement display et width sur chaque élément de la timeline. */
+#education,
+#education .container,
+#education .timeline,
+#education .timeline-item,
+#education .timeline-content {
+    display:   block !important;
+    width:     100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
 .timeline {
     position:      relative;
     padding-left:  2.5rem;
     list-style:    none;
     margin:        0;
-    width:         100%;      /* FIX : force la largeur complète du container */
+    display:       block;
+    width:         100%;
     box-sizing:    border-box;
 }
 
@@ -786,15 +798,15 @@ code {
     content:       '';
     position:      absolute;
     left:          0.6rem;
-    top:           0.6rem;
-    bottom:        0.6rem;
+    top:           0.5rem;
+    bottom:        0.5rem;
     width:         2px;
     background:    linear-gradient(180deg, var(--color-accent), var(--color-accent2), transparent);
     border-radius: var(--radius-full);
 }
 
 .timeline-item {
-    position:      relative;   /* FIX : ancre le .timeline-marker en absolu sur l'item */
+    position:      relative;
     margin-bottom: var(--space-12);
     display:       block;
     width:         100%;
@@ -807,8 +819,8 @@ code {
 
 .timeline-marker {
     position:      absolute;
-    left:          -1.93rem;
-    top:           1.4rem;
+    left:          -1.9rem;
+    top:           1rem;
     width:         14px;
     height:        14px;
     background:    var(--color-accent);
@@ -816,7 +828,6 @@ code {
     border:        3px solid var(--color-bg);
     box-shadow:    0 0 12px var(--color-accent-glow);
     z-index:       1;
-    flex-shrink:   0;
 }
 
 .timeline-content {
@@ -828,6 +839,7 @@ code {
     padding:       var(--space-6);
     transition:    all var(--transition);
     box-sizing:    border-box;
+    overflow:      hidden;
 }
 
 .timeline-content:hover {
