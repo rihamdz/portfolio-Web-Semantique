@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio multilingue de Riham Kaddour Bakir">
+  <meta name="keywords" content="portfolio, web, data, XML, JavaScript, Sup Galilée">
+  <title>Portfolio – Riham Kaddour Bakir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="header-logo" href="#home" aria-label="Accueil">
+        <span class="logo-first">Riham</span><span class="logo-last">KB</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-menu">
+          <li><a class="nav-link" href="#about" data-i18n="nav.about">À propos</a></li>
+          <li><a class="nav-link" href="#education" data-i18n="nav.education">Formation</a></li>
+          <li><a class="nav-link" href="#experience" data-i18n="nav.experience">Expérience</a></li>
+          <li><a class="nav-link" href="#skills" data-i18n="nav.skills">Compétences</a></li>
+          <li><a class="nav-link" href="#projects" data-i18n="nav.projects">Projets</a></li>
+          <li><a class="nav-link" href="#video" data-i18n="nav.video">Vidéo</a></li>
+          <li><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switcher" aria-label="Choix de langue">
+        <button class="lang-btn lang-btn--active" type="button" data-lang="fr"><span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span></button>
+        <button class="lang-btn" type="button" data-lang="en"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
+        <button class="lang-btn" type="button" data-lang="ar"><span class="lang-flag">🇩🇿</span><span class="lang-code">AR</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-photo-wrapper" id="hero-photo-zone"></div>
+        <div class="hero-text">
+          <p class="hero-eyebrow">Portfolio Web Sémantique</p>
+          <h1 class="hero-name"><span class="hero-name-first" id="hero-firstname">Riham</span><span class="hero-name-last" id="hero-lastname"> Kaddour Bakir</span></h1>
+          <p class="hero-title" id="hero-title">Chargement...</p>
+          <p class="hero-badge"><span class="badge-dot"></span><span id="hero-tagline"></span></p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects" data-i18n="cta.projects">Voir mes projets</a>
+            <a class="btn btn-outline" href="#contact" data-i18n="cta.contact">Me contacter</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll"><span>SCROLL</span><span class="scroll-arrow"></span></div>
+    </section>
+
+    <div id="dynamic-content"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-name">Riham Kaddour Bakir</p>
+        <p class="footer-built" data-i18n="footer.built">Réalisé avec HTML, CSS, JavaScript et XML.</p>
+      </div>
+      <div class="footer-contact" id="footer-contact"></div>
+      <div class="footer-nav">
+        <a class="footer-nav-link" href="#about" data-i18n="nav.about">À propos</a>
+        <a class="footer-nav-link" href="#education" data-i18n="nav.education">Formation</a>
+        <a class="footer-nav-link" href="#projects" data-i18n="nav.projects">Projets</a>
+        <a class="footer-nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
+      </div>
+    </div>
+    <div class="container footer-copy">
+      <p>© <span id="year"></span> — <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+      <p class="footer-academic">Portfolio Web Sémantique – Sup Galilée / Université Sorbonne Paris Nord</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
