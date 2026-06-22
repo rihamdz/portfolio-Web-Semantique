@@ -24,10 +24,12 @@
         experience: 'Expérience',
         skills: 'Compétences',
         projects: 'Projets',
+        semanticTPs: 'Web Sémantique',
         video: 'Vidéo',
         contact: 'Contact'
       },
       cta: {
+        semanticTPs: 'Web Sémantique',
         projects: 'Voir mes projets',
         contact: 'Me contacter'
       },
@@ -55,10 +57,12 @@
         experience: 'Experience',
         skills: 'Skills',
         projects: 'Projects',
+        semanticTPs: 'Semantic Web',
         video: 'Video',
         contact: 'Contact'
       },
       cta: {
+        semanticTPs: 'Semantic Web',
         projects: 'View my projects',
         contact: 'Contact me'
       },
@@ -86,10 +90,12 @@
         experience: 'التجربة',
         skills: 'المهارات',
         projects: 'المشاريع',
+        semanticTPs: 'الويب الدلالي',
         video: 'فيديو',
         contact: 'التواصل'
       },
       cta: {
+        semanticTPs: 'الويب الدلالي',
         projects: 'عرض مشاريعي',
         contact: 'تواصل معي'
       },
@@ -239,6 +245,7 @@
       renderExperience(root.querySelector('experience')),
       renderSkills(root.querySelector('skills')),
       renderProjects(root.querySelector('projects')),
+      renderTPs(root.querySelector('semanticTPs')),
       renderVideo(root.querySelector('video')),
       renderContact(root.querySelector('contact'), identity)
     ].join('');
@@ -524,11 +531,86 @@
       </section>`;
   }
 
+
+  function renderTPs(semanticTPs) {
+    if (!semanticTPs) return '';
+    const lang = state.lang;
+
+    const tpLabelMap = {
+      fr: { notions: 'Notions clés', techs: 'Technologies' },
+      en: { notions: 'Key concepts', techs: 'Technologies' },
+      ar: { notions: 'المفاهيم الأساسية', techs: 'التقنيات' }
+    };
+    const lbl = tpLabelMap[lang] || tpLabelMap['fr'];
+
+    const intro = (() => {
+      const n = semanticTPs.querySelector('sectionIntro > translation[lang="' + lang + '"]');
+      return n ? n.textContent.trim() : '';
+    })();
+
+    const cards = Array.from(semanticTPs.querySelectorAll('tp')).map(function(tp) {
+      const tpTitle = (() => {
+        const n = tp.querySelector('tpTitle > translation[lang="' + lang + '"]');
+        return n ? n.textContent.trim() : '';
+      })();
+      const tpDesc = (() => {
+        const n = tp.querySelector('tpDesc > translation[lang="' + lang + '"]');
+        return n ? n.textContent.trim() : '';
+      })();
+      const icon = attr(tp, 'icon', '📌');
+      const num = attr(tp, 'number', '');
+
+      const techs = Array.from(tp.querySelectorAll('techStack > tech'))
+        .map(function(t) { return `<span class="tp-tech">${esc(t.textContent.trim())}</span>`; })
+        .join('');
+
+      const notions = Array.from(tp.querySelectorAll(`notions > notion[lang="${lang}"]`))
+        .map(function(n) { return `<li>${esc(n.textContent.trim())}</li>`; })
+        .join('');
+
+      return `
+        <article class="tp-card" vocab="https://schema.org/" typeof="LearningResource" id="tp${esc(num)}">
+          <div class="tp-card-header">
+            <span class="tp-icon">${esc(icon)}</span>
+            <h3 class="tp-card-title" property="name">${esc(tpTitle)}</h3>
+          </div>
+          <p class="tp-card-desc" property="description">${esc(tpDesc)}</p>
+          <div class="tp-techs">
+            <span class="tp-label">${esc(lbl.techs)} :</span>
+            ${techs}
+          </div>
+          ${notions ? `<div class="tp-notions">
+            <span class="tp-label">${esc(lbl.notions)} :</span>
+            <ul class="tp-notions-list">${notions}</ul>
+          </div>` : ''}
+        </article>`;
+    }).join('');
+
+    const sectionTitle = (() => {
+      const n = semanticTPs.querySelector('sectionTitle > translation[lang="' + lang + '"]');
+      return n ? n.textContent.trim() : 'Web Sémantique – TPs';
+    })();
+
+    return `
+      <section id="semantic-tps" class="section reveal" vocab="https://schema.org/" typeof="Course">
+        <div class="container">
+          <h2 class="section-title" property="name">${esc(sectionTitle)}</h2>
+          ${intro ? `<p class="tps-intro" property="description">${esc(intro)}</p>` : ''}
+          <div class="tps-grid">${cards}</div>
+        </div>
+      </section>`;
+  }
+
   function renderVideo(video) {
     const item = video.querySelector(`videoItem[lang="${state.lang}"]`) || video.querySelector('videoItem');
     const youtubeId = attr(item, 'youtubeId');
     const title = attr(item, 'title');
     const valid = youtubeId && !youtubeId.startsWith('TODO');
+
+    const extra = video.querySelector('extraVideo');
+    const extraId = extra ? attr(extra, 'youtubeId') : '';
+    const langKey = state.lang === 'ar' ? 'titleAr' : state.lang === 'en' ? 'titleEn' : 'titleFr';
+    const extraTitle = extra ? attr(extra, langKey) : '';
 
     return `
       <section id="video" class="section reveal" vocab="https://schema.org/">
@@ -541,8 +623,17 @@
                  <iframe class="video-iframe" src="https://www.youtube.com/embed/${esc(youtubeId)}" title="${esc(title)}" allowfullscreen></iframe>
                </div>`
             : `<div class="video-placeholder">
-                 <p class="video-todo">TODO  soon ....</p>
+                 <p class="video-todo">À venir…</p>
                </div>`}
+          ${extraId ? `
+          <div class="video-extra" style="margin-top:2rem;">
+            <h3 class="video-extra-title" style="font-size:1rem;margin-bottom:.75rem;color:var(--color-accent);">🤟 ${esc(extraTitle)}</h3>
+            <div class="video-wrapper" typeof="VideoObject">
+              <meta property="name" content="${esc(extraTitle)}">
+              <meta property="embedUrl" content="https://www.youtube.com/embed/${esc(extraId)}">
+              <iframe class="video-iframe" src="https://www.youtube.com/embed/${esc(extraId)}" title="${esc(extraTitle)}" allowfullscreen></iframe>
+            </div>
+          </div>` : ''}
         </div>
       </section>`;
   }
@@ -559,7 +650,6 @@
           <div>
             <h2 class="section-title">${esc(t(contact, 'sectionTitle'))}</h2>
             <p class="contact-intro">${esc(t(contact, 'contactIntro'))}</p>
-            <p class="contact-availability" property="description">${esc(t(contact, 'availability'))}</p>
             <div class="contact-links">
               <a class="contact-link-item" href="mailto:${esc(email)}" property="email">
                 <span class="contact-icon">✉</span>
