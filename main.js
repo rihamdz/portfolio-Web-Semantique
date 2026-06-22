@@ -75,7 +75,7 @@
         algorithm: 'Algo'
       },
       form: {
-        note: 'soon ...'
+        note: ''
       },
       misc: {
         technologies: 'Technologies used',
