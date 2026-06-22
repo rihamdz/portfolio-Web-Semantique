@@ -42,7 +42,7 @@
         algorithm: 'Algo'
       },
       form: {
-        note: 'Formulaire statique : utilisez les liens de contact ci-dessous.'
+        note: ''
       },
       misc: {
         technologies: 'Technologies utilisées',
