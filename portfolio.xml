@@ -190,7 +190,6 @@
                 <mission>Modélisation sémantique dans Power BI : tables de faits et de dimensions, relations, mesures et indicateurs</mission>
                 <mission>Analyse exploratoire des données (EDA) : identification de tendances, anomalies, indicateurs clés de performance</mission>
                 <mission>Contribution à des projets de Business Intelligence visant à améliorer la prise de décision</mission>
-                <mission>Application de notions réseaux (TCP/IP, adressage IP) dans la compréhension de l'environnement technique de l'entreprise</mission>
             </missions>
             <missions lang="en">
                 <mission>Data analysis from internal databases and business systems (collection, cleaning, transformation, structuring)</mission>
@@ -199,7 +198,6 @@
                 <mission>Semantic modelling in Power BI: fact and dimension tables, relationships, measures and indicators</mission>
                 <mission>Exploratory data analysis (EDA): identifying trends, anomalies, and key performance indicators</mission>
                 <mission>Contributing to Business Intelligence projects aimed at improving decision-making</mission>
-                <mission>Applying network concepts (TCP/IP, IP addressing) to understand the company's technical environment</mission>
             </missions>
             <missions lang="ar">
                 <mission>تحليل البيانات من قواعد البيانات والأنظمة الداخلية (جمع، تنظيف، تحويل، هيكلة)</mission>
@@ -208,7 +206,6 @@
                 <mission>النمذجة الدلالية في Power BI: جداول الحقائق والأبعاد والعلاقات والمقاييس</mission>
                 <mission>التحليل الاستكشافي للبيانات: تحديد الاتجاهات والشذوذات ومؤشرات الأداء الرئيسية</mission>
                 <mission>المساهمة في مشاريع ذكاء الأعمال لتحسين اتخاذ القرار</mission>
-                <mission>تطبيق مفاهيم الشبكات (TCP/IP، عنونة IP) لفهم البيئة التقنية للمؤسسة</mission>
             </missions>
         </position>
     </experience>
