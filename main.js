@@ -607,10 +607,14 @@
     const title = attr(item, 'title');
     const valid = youtubeId && !youtubeId.startsWith('TODO');
 
-    const extra = video.querySelector('extraVideo');
-    const extraId = extra ? attr(extra, 'youtubeId') : '';
-    const langKey = state.lang === 'ar' ? 'titleAr' : state.lang === 'en' ? 'titleEn' : 'titleFr';
-    const extraTitle = extra ? attr(extra, langKey) : '';
+    // Vidéo LSF — ID fixe, pas besoin de passer par le XML
+    const LSF_ID = 'Zz711bmuUBw';
+    const lsfTitles = {
+      fr: "Comment dire « Bonjour, je m'appelle… » en langue des signes",
+      en: "How to sign 'Hello, my name is...' in sign language",
+      ar: "كيف تقول «مرحباً، اسمي...» بلغة الإشارة"
+    };
+    const lsfTitle = lsfTitles[state.lang] || lsfTitles['fr'];
 
     return `
       <section id="video" class="section reveal" vocab="https://schema.org/">
@@ -622,18 +626,15 @@
                  <meta property="embedUrl" content="https://www.youtube.com/embed/${esc(youtubeId)}">
                  <iframe class="video-iframe" src="https://www.youtube.com/embed/${esc(youtubeId)}" title="${esc(title)}" allowfullscreen></iframe>
                </div>`
-            : `<div class="video-placeholder">
-                 <p class="video-todo">À venir…</p>
-               </div>`}
-          ${extraId ? `
-          <div class="video-extra" style="margin-top:2rem;">
-            <h3 class="video-extra-title" style="font-size:1rem;margin-bottom:.75rem;color:var(--color-accent);">🤟 ${esc(extraTitle)}</h3>
+            : ''}
+          <div class="video-extra" style="${valid ? 'margin-top:2rem;border-top:1px solid var(--color-border);padding-top:2rem;' : ''}">
+            <h3 class="video-extra-title" style="font-size:1rem;margin-bottom:.75rem;color:var(--color-accent);">🤟 ${esc(lsfTitle)}</h3>
             <div class="video-wrapper" typeof="VideoObject">
-              <meta property="name" content="${esc(extraTitle)}">
-              <meta property="embedUrl" content="https://www.youtube.com/embed/${esc(extraId)}">
-              <iframe class="video-iframe" src="https://www.youtube.com/embed/${esc(extraId)}" title="${esc(extraTitle)}" allowfullscreen></iframe>
+              <meta property="name" content="${esc(lsfTitle)}">
+              <meta property="embedUrl" content="https://www.youtube.com/embed/${LSF_ID}">
+              <iframe class="video-iframe" src="https://www.youtube.com/embed/${LSF_ID}" title="${esc(lsfTitle)}" allowfullscreen></iframe>
             </div>
-          </div>` : ''}
+          </div>
         </div>
       </section>`;
   }
