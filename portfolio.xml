@@ -32,9 +32,9 @@
         </siteDescription>
 
         <keywords>
-            <translation lang="fr">portfolio, développement web, PHP, data analysis, Power BI, SQL, ingénieure informatique, alternance, GRDF, Sup Galilée</translation>
-            <translation lang="en">portfolio, web development, PHP, data analysis, Power BI, SQL, computer engineer, apprenticeship, GRDF, Sup Galilée</translation>
-            <translation lang="ar">ملف أعمال، تطوير الويب، PHP، تحليل البيانات، Power BI، SQL، هندسة المعلوماتية، GRDF</translation>
+            <translation lang="fr">portfolio, développement web, PHP, data analysis, Power BI, SQL, ingénieure informatique, alternance, GRDF, Sup Galilée, web sémantique, RDF, SPARQL, XML, XSLT</translation>
+            <translation lang="en">portfolio, web development, PHP, data analysis, Power BI, SQL, computer engineer, apprenticeship, GRDF, Sup Galilée, semantic web, RDF, SPARQL, XML, XSLT</translation>
+            <translation lang="ar">ملف أعمال، تطوير الويب، PHP، تحليل البيانات، Power BI، SQL، هندسة المعلوماتية، GRDF، الويب الدلالي، RDF، SPARQL، XML</translation>
         </keywords>
     </meta>
 
@@ -55,8 +55,6 @@
             <translation lang="en">Development · Data · Systems — Sup Galilée · Université Sorbonne Paris Nord</translation>
             <translation lang="ar">تطوير · بيانات · أنظمة — Sup Galilée · جامعة سوربون باريس نور</translation>
         </tagline>
-
-       
 
         <location>Île-de-France, France</location>
         <email>kaddourbakirriham@gmail.com</email>
@@ -280,8 +278,14 @@
             <skill name="HTML5 / XHTML" level="advanced"/>
             <skill name="CSS3"          level="advanced"/>
             <skill name="XML / DTD"     level="advanced"/>
-            <skill name="XSLT"          level="intermediate"/>
-            <skill name="Schema.org"    level="intermediate"/>
+            <skill name="XML Schema (XSD)" level="advanced"/>
+            <skill name="XSLT"          level="advanced"/>
+            <skill name="RDF / RDFa"    level="advanced"/>
+            <skill name="SPARQL"        level="advanced"/>
+            <skill name="Turtle / N-Triples" level="intermediate"/>
+            <skill name="Schema.org / FOAF / Dublin Core" level="advanced"/>
+            <skill name="Linked Open Data (LOD)" level="intermediate"/>
+            <skill name="Unicode / UTF-8 / UTF-16" level="intermediate"/>
             <skill name="UML"           level="intermediate"/>
         </category>
 
@@ -309,6 +313,138 @@
             <skill name="Arabe"    level="expert"/>
         </category>
     </skills>
+
+    <!-- =====================================================================
+         SEMANTIC WEB TPs : Travaux Pratiques Web Sémantique
+         ===================================================================== -->
+    <semanticTPs>
+        <sectionTitle>
+            <translation lang="fr">Web Sémantique – Travaux Pratiques</translation>
+            <translation lang="en">Semantic Web – Lab Work</translation>
+            <translation lang="ar">الويب الدلالي – أعمال تطبيقية</translation>
+        </sectionTitle>
+
+        <sectionIntro>
+            <translation lang="fr">Dans le cadre du cours Web Sémantique (WSAIR2_2526) à l'Université Sorbonne Paris Nord, j'ai réalisé une série de travaux pratiques couvrant les technologies fondamentales du Web des données.</translation>
+            <translation lang="en">As part of the Semantic Web course (WSAIR2_2526) at Université Sorbonne Paris Nord, I completed a series of lab sessions covering the core technologies of the Web of Data.</translation>
+            <translation lang="ar">في إطار مقرر الويب الدلالي (WSAIR2_2526) بجامعة سوربون باريس نور، أنجزت سلسلة من الأعمال التطبيقية تغطي التقنيات الأساسية لويب البيانات.</translation>
+        </sectionIntro>
+
+        <tp id="tp3" number="3" icon="🔗">
+            <tpTitle>
+                <translation lang="fr">TP3 — RDF, SPARQL et Corese</translation>
+                <translation lang="en">Lab 3 — RDF, SPARQL and Corese</translation>
+                <translation lang="ar">TP3 — RDF وSPARQL وCorese</translation>
+            </tpTitle>
+            <tpDesc>
+                <translation lang="fr">Modélisation en RDF/XML de l'univers de La Compagnie des Glaces : classes (Personnage, Ville, Train, Compagnie), propriétés avec domaine/portée, individus. Visualisation du graphe avec Graphviz. Interrogation via 4 requêtes SPARQL dans Corese (SELECT, OPTIONAL, FILTER, ORDER BY, types XSD).</translation>
+                <translation lang="en">RDF/XML modelling of the La Compagnie des Glaces universe: classes (Character, City, Train, Company), properties with domain/range, individuals. Graph visualisation with Graphviz. Queried with 4 SPARQL queries in Corese (SELECT, OPTIONAL, FILTER, ORDER BY, XSD types).</translation>
+                <translation lang="ar">نمذجة RDF/XML لعالم La Compagnie des Glaces: فئات (شخصية، مدينة، قطار، شركة)، خصائص بمجال ونطاق، أفراد. تصور الرسم البياني بـ Graphviz. استعلام بـ 4 استعلامات SPARQL في Corese.</translation>
+            </tpDesc>
+            <techStack>
+                <tech>RDF/XML</tech>
+                <tech>RDFS</tech>
+                <tech>SPARQL</tech>
+                <tech>Corese</tech>
+                <tech>Graphviz</tech>
+                <tech>xsd:integer</tech>
+            </techStack>
+            <notions>
+                <notion lang="fr">Triplets RDF (sujet, prédicat, objet)</notion>
+                <notion lang="fr">rdfs:Class, rdfs:domain, rdfs:range</notion>
+                <notion lang="fr">Requêtes SELECT avec OPTIONAL et FILTER</notion>
+                <notion lang="fr">Typage XSD pour tri numérique</notion>
+                <notion lang="en">RDF triples (subject, predicate, object)</notion>
+                <notion lang="en">rdfs:Class, rdfs:domain, rdfs:range</notion>
+                <notion lang="en">SELECT queries with OPTIONAL and FILTER</notion>
+                <notion lang="en">XSD typing for numeric sorting</notion>
+                <notion lang="ar">ثلاثيات RDF (موضوع، محمول، مفعول)</notion>
+                <notion lang="ar">rdfs:Class وrdfs:domain وrdfs:range</notion>
+                <notion lang="ar">استعلامات SELECT مع OPTIONAL وFILTER</notion>
+            </notions>
+        </tp>
+
+        <tp id="tp4" number="4" icon="📄">
+            <tpTitle>
+                <translation lang="fr">TP4 — XML Schema, XSLT et Unicode</translation>
+                <translation lang="en">Lab 4 — XML Schema, XSLT and Unicode</translation>
+                <translation lang="ar">TP4 — XML Schema وXSLT وUnicode</translation>
+            </tpTitle>
+            <tpDesc>
+                <translation lang="fr">Modélisation XSD des débats du Parlement Européen : types simples (restrictions, énumérations, regex), types complexes, contraintes xs:key/xs:keyref. Transformation XSLT 1.0 du XML en HTML avec clés XSLT pour jointures. Implémentation manuelle des encodages UCS-4, UTF-8 et UTF-16 BE en Python (manipulation de bits sans librairie).</translation>
+                <translation lang="en">XSD modelling of European Parliament debates: simple types (restrictions, enumerations, regex), complex types, xs:key/xs:keyref constraints. XSLT 1.0 transformation of XML to HTML with XSLT keys for joins. Manual implementation of UCS-4, UTF-8 and UTF-16 BE encodings in Python (bit manipulation without libraries).</translation>
+                <translation lang="ar">نمذجة XSD لمناقشات البرلمان الأوروبي: أنواع بسيطة (قيود وتعدادات وتعبيرات نظامية)، أنواع معقدة، قيود xs:key وxs:keyref. تحويل XSLT 1.0 من XML إلى HTML. تطبيق يدوي لترميزات UCS-4 وUTF-8 وUTF-16 BE بـ Python.</translation>
+            </tpDesc>
+            <techStack>
+                <tech>XML Schema (XSD)</tech>
+                <tech>XSLT 1.0</tech>
+                <tech>XML</tech>
+                <tech>Python</tech>
+                <tech>Unicode</tech>
+                <tech>UTF-8</tech>
+                <tech>UTF-16 BE</tech>
+            </techStack>
+            <notions>
+                <notion lang="fr">Types simples XSD (restriction, énumération, regex)</notion>
+                <notion lang="fr">Types complexes (sequence, all, simpleContent)</notion>
+                <notion lang="fr">Contraintes d'intégrité xs:key / xs:keyref</notion>
+                <notion lang="fr">Clés XSLT pour jointures inter-éléments</notion>
+                <notion lang="fr">Encodages Unicode : UCS-4, UTF-8, UTF-16 BE</notion>
+                <notion lang="fr">Manipulation de bits (masques, décalages)</notion>
+                <notion lang="en">XSD simple types (restriction, enumeration, regex)</notion>
+                <notion lang="en">Complex types (sequence, all, simpleContent)</notion>
+                <notion lang="en">Integrity constraints xs:key / xs:keyref</notion>
+                <notion lang="en">XSLT keys for cross-element joins</notion>
+                <notion lang="en">Unicode encodings: UCS-4, UTF-8, UTF-16 BE</notion>
+                <notion lang="ar">أنواع XSD البسيطة (تقييد، تعداد، تعبير نظامي)</notion>
+                <notion lang="ar">أنواع معقدة (sequence، all، simpleContent)</notion>
+                <notion lang="ar">قيود التكامل xs:key وxs:keyref</notion>
+                <notion lang="ar">ترميزات Unicode: UCS-4 وUTF-8 وUTF-16 BE</notion>
+            </notions>
+        </tp>
+
+        <tp id="tp5" number="5" icon="🌐">
+            <tpTitle>
+                <translation lang="fr">TP5 — RDFa 1.1 et Web Sémantique</translation>
+                <translation lang="en">Lab 5 — RDFa 1.1 and Semantic Web</translation>
+                <translation lang="ar">TP5 — RDFa 1.1 والويب الدلالي</translation>
+            </tpTitle>
+            <tpDesc>
+                <translation lang="fr">Page HTML annotée en RDFa 1.1 représentant 6 personnages de BD franco-belge. Multi-vocabulaires : FOAF, Schema.org, DBpedia Ontology, Dublin Core. Alignement LOD via owl:sameAs vers DBpedia. Sérialisation Turtle de vérification. 5 requêtes SPARQL sur l'endpoint DBpedia. Conformité aux bonnes pratiques W3C DWBP.</translation>
+                <translation lang="en">HTML page annotated in RDFa 1.1 representing 6 Franco-Belgian comics characters. Multi-vocabulary: FOAF, Schema.org, DBpedia Ontology, Dublin Core. LOD alignment via owl:sameAs to DBpedia. Turtle serialisation for verification. 5 SPARQL queries on the DBpedia endpoint. Compliance with W3C DWBP best practices.</translation>
+                <translation lang="ar">صفحة HTML مُوسَّمة بـ RDFa 1.1 تمثل 6 شخصيات من القصص المصورة. متعددة المفردات: FOAF وSchema.org وDBpedia Ontology وDublin Core. محاذاة LOD عبر owl:sameAs نحو DBpedia. تسلسل Turtle للتحقق. 5 استعلامات SPARQL على endpoint DBpedia.</translation>
+            </tpDesc>
+            <techStack>
+                <tech>RDFa 1.1</tech>
+                <tech>FOAF</tech>
+                <tech>Schema.org</tech>
+                <tech>DBpedia Ontology</tech>
+                <tech>Dublin Core</tech>
+                <tech>owl:sameAs</tech>
+                <tech>SPARQL</tech>
+                <tech>Turtle</tech>
+            </techStack>
+            <notions>
+                <notion lang="fr">Annotations RDFa (about, typeof, property, rel)</notion>
+                <notion lang="fr">Typage multiple pour l'interopérabilité LOD</notion>
+                <notion lang="fr">owl:sameAs et traversal sémantique</notion>
+                <notion lang="fr">Tags de langue sur les littéraux (@fr, @en)</notion>
+                <notion lang="fr">Types XSD (xsd:gYear) sur valeurs temporelles</notion>
+                <notion lang="fr">Requêtes SPARQL avec VALUES, OPTIONAL, FILTER(LANG)</notion>
+                <notion lang="en">RDFa annotations (about, typeof, property, rel)</notion>
+                <notion lang="en">Multiple typing for LOD interoperability</notion>
+                <notion lang="en">owl:sameAs and semantic traversal</notion>
+                <notion lang="en">Language tags on literals (@fr, @en)</notion>
+                <notion lang="en">XSD types (xsd:gYear) on temporal values</notion>
+                <notion lang="en">SPARQL queries with VALUES, OPTIONAL, FILTER(LANG)</notion>
+                <notion lang="ar">توسيمات RDFa (about، typeof، property، rel)</notion>
+                <notion lang="ar">التصنيف المتعدد لقابلية التشغيل البيني LOD</notion>
+                <notion lang="ar">owl:sameAs والتنقل الدلالي</notion>
+                <notion lang="ar">علامات اللغة على الحرفيات (@fr، @en)</notion>
+                <notion lang="ar">استعلامات SPARQL مع VALUES وOPTIONAL وFILTER(LANG)</notion>
+            </notions>
+        </tp>
+    </semanticTPs>
 
     <!-- =====================================================================
          PROJECTS : Projets informatiques
@@ -418,7 +554,7 @@
     </projects>
 
     <!-- =====================================================================
-         VIDEO : Présentation vidéo multilingue
+         VIDEO : Présentation vidéo multilingue + ressource LSF
          ===================================================================== -->
     <video>
         <sectionTitle>
@@ -426,12 +562,7 @@
             <translation lang="en">Video presentation</translation>
             <translation lang="ar">تقديم بالفيديو</translation>
         </sectionTitle>
-        <!--
-            TODO: Remplacer les youtubeId ci-dessous par vos vrais identifiants YouTube.
-            Pour obtenir un youtubeId : regardez l'URL d'une vidéo YouTube :
-            https://www.youtube.com/watch?v=XXXXXXXXXXX  →  youtubeId = XXXXXXXXXXX
-            Vous pouvez aussi utiliser une seule vidéo avec pistes de sous-titres WebVTT.
-        -->
+
         <videoItem
             lang="fr"
             youtubeId="TODO_YOUTUBE_ID_FR"
@@ -450,6 +581,14 @@
             title="تقديم ملف الأعمال بالعربية"
             subtitleSrc="subtitles/portfolio-ar.vtt"
         />
+
+        <!-- Ressource langue des signes -->
+        <extraVideo
+            youtubeId="Zz711bmuUBw"
+            titleFr="Comment dire « Bonjour, je m'appelle... » en langue des signes"
+            titleEn="How to sign 'Hello, my name is...' in sign language"
+            titleAr="كيف تقول «مرحباً، اسمي...» بلغة الإشارة"
+        />
     </video>
 
     <!-- =====================================================================
@@ -466,11 +605,6 @@
             <translation lang="en">I am open to any professional opportunity, internship, collaborative project, or simply a conversation. Do not hesitate to reach out!</translation>
             <translation lang="ar">أنا منفتحة على أي فرصة مهنية، أو تدريب، أو مشروع تعاوني، أو مجرد تبادل للآراء. لا تتردد في التواصل معي!</translation>
         </contactIntro>
-        <availability>
-            <translation lang="fr">Disponible pour un contrat d'apprentissage de 24 mois à partir de septembre 2025 (rythme : 1 mois sur 2 en entreprise).</translation>
-            <translation lang="en">Available for a 24-month apprenticeship contract from September 2025 (schedule: 1 month in 2 in company).</translation>
-            <translation lang="ar">متاحة لعقد تدريب متناوب مدته 24 شهرًا اعتبارًا من سبتمبر 2025 (إيقاع: شهر من كل شهرين في المؤسسة).</translation>
-        </availability>
     </contact>
 
 </portfolio>
