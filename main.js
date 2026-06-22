@@ -42,7 +42,7 @@
         algorithm: 'Algo'
       },
       form: {
-        note: ''
+        note: 'Formulaire statique : utilisez les liens de contact ci-dessous.'
       },
       misc: {
         technologies: 'Technologies utilisées',
@@ -75,7 +75,7 @@
         algorithm: 'Algo'
       },
       form: {
-        note: ''
+        note: 'soon ...'
       },
       misc: {
         technologies: 'Technologies used',
@@ -670,9 +670,7 @@
               </a>
             </div>
           </div>
-          <div class="contact-form-wrapper">
-            <p class="contact-form-note">${esc(labels[state.lang].form.note)}</p>
-          </div>
+
         </div>
       </section>`;
   }
