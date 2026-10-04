@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr"
-      prefixaf: http://xmlns.com/foaf/0.1/      prefix="schema: https://schema.org/
+      prefix="schema: https://schema.org/
+              foaf: http://xmlns.com/foaf/0.1/
               dc: http://purl.org/dc/elements/1.1/">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1B1F2E">
 
   <title>Portfolio – Riham Kaddour Bakir</title>
   <meta name="description" content="Portfolio professionnel de Riham Kaddour Bakir, ingénieure informatique en alternance chez GRDF, spécialisée en développement web, data analysis et systèmes informatiques.">
@@ -20,6 +22,11 @@
   <meta property="dc:subject" content="Portfolio, RDFa, FOAF, Dublin Core, Web sémantique">
   <meta property="dc:rights" content="Tous droits réservés">
 
+  <!-- Polices : Bricolage Grotesque (titres), Figtree (texte), JetBrains Mono (code), Cairo (arabe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Cairo:wght@400..800&display=swap">
+
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -28,12 +35,12 @@
 </head>
 
 <body>
-  <!-- Bloc RDFa explicite pour garantir la détection de FOAF par l'agent OpenLink -->
+  <!-- Bloc RDFa explicite : garantit la détection de FOAF et schema.org même sans JavaScript -->
   <div about="#riham" typeof="foaf:Person schema:Person" style="display:none;">
     <span property="foaf:name schema:name">Riham Kaddour Bakir</span>
     <span property="schema:givenName">Riham</span>
     <span property="schema:familyName">Kaddour Bakir</span>
-    <span property="schema:jobTitle">Ingénieure Informatique en Alternance</span>
+    <span property="schema:jobTitle">Consultante Data &amp; BI</span>
     <span property="schema:description">Étudiante ingénieure en informatique à Sup Galilée, en alternance chez GRDF, spécialisée en développement web, data analysis et systèmes informatiques.</span>
 
     <meta property="schema:email" content="kaddourbakirriham@gmail.com">
@@ -46,20 +53,27 @@
     <link rel="foaf:account schema:sameAs" href="https://github.com/riham-kb">
   </div>
 
-  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+  <a class="skip-link" href="#main-content" data-i18n="aria.skip">Aller au contenu principal</a>
 
   <header class="site-header">
     <div class="container header-inner">
 
-      <a class="header-logo" href="#home" aria-label="Accueil"
-         typeof="schema:Person foaf:Person"
-         about="#riham">
-        <span class="logo-first" property="schema:givenName">Riham</span>
-        <span class="logo-last" property="schema:familyName">KB</span>
+      <a class="header-logo" href="#home" data-i18n-aria="aria.home" aria-label="Accueil">
+        <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+          <rect x="1" y="15" width="5" height="12" rx="1" fill="var(--c-teal)"/>
+          <rect x="8" y="9" width="5" height="18" rx="1" fill="var(--c-yellow)"/>
+          <rect x="15" y="12" width="5" height="15" rx="1" fill="var(--c-coral)"/>
+          <rect x="22" y="3" width="5" height="24" rx="1" fill="var(--c-purple)"/>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-first">Riham</span>
+          <span class="logo-last">KB</span>
+        </span>
       </a>
 
       <button class="nav-toggle"
               type="button"
+              data-i18n-aria="aria.menuOpen"
               aria-label="Ouvrir le menu"
               aria-expanded="false"
               aria-controls="main-nav">
@@ -68,32 +82,34 @@
         <span class="burger-line"></span>
       </button>
 
-      <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+      <nav id="main-nav" class="main-nav" data-i18n-aria="aria.nav" aria-label="Navigation principale">
         <ul class="nav-menu">
-          <li><a class="nav-link" href="#about">À propos</a></li>
-          <li><a class="nav-link" href="#education">Formation</a></li>
-          <li><a class="nav-link" href="#experience">Expérience</a></li>
-          <li><a class="nav-link" href="#skills">Compétences</a></li>
-          <li><a class="nav-link" href="#projects">Projets</a></li>
-          <li><a class="nav-link" href="#semantic-tps">Web Sém.</a></li>
-          <li><a class="nav-link" href="#video">Vidéo</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link" href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a class="nav-link" href="#cases" data-i18n="nav.cases">Réalisations</a></li>
+          <li><a class="nav-link" href="#about" data-i18n="nav.about">À propos</a></li>
+          <li><a class="nav-link" href="#education" data-i18n="nav.education">Formation</a></li>
+          <li><a class="nav-link" href="#experience" data-i18n="nav.experience">Expérience</a></li>
+          <li><a class="nav-link" href="#skills" data-i18n="nav.skills">Compétences</a></li>
+          <li><a class="nav-link" href="#projects" data-i18n="nav.projects">Projets</a></li>
         </ul>
       </nav>
 
-      <div class="lang-switcher" aria-label="Choix de langue">
-        <button class="lang-btn lang-btn--active" type="button" data-lang="fr">
-          <span class="lang-flag">🇫🇷</span>
-          <span class="lang-code">FR</span>
-        </button>
-        <button class="lang-btn" type="button" data-lang="en">
-          <span class="lang-flag">🇬🇧</span>
-          <span class="lang-code">EN</span>
-        </button>
-        <button class="lang-btn" type="button" data-lang="ar">
-          <span class="lang-flag">🇩🇿</span>
-          <span class="lang-code">AR</span>
-        </button>
+      <div class="header-tools">
+        <div class="lang-switcher" role="group" data-i18n-aria="aria.lang" aria-label="Choix de langue">
+          <button class="lang-btn lang-btn--active" type="button" data-lang="fr" lang="fr">
+            <span class="lang-flag" aria-hidden="true">🇫🇷</span>
+            <span class="lang-code">FR</span>
+          </button>
+          <button class="lang-btn" type="button" data-lang="en" lang="en">
+            <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+            <span class="lang-code">EN</span>
+          </button>
+          <button class="lang-btn" type="button" data-lang="ar" lang="ar">
+            <span class="lang-flag" aria-hidden="true">🇩🇿</span>
+            <span class="lang-code">AR</span>
+          </button>
+        </div>
+        <a class="btn btn-ink header-cta" href="#contact" data-i18n="cta.contact">Me contacter</a>
       </div>
 
     </div>
@@ -107,31 +123,18 @@
              typeof="schema:Person foaf:Person"
              about="#riham">
 
-      <div class="hero-bg-grid" aria-hidden="true"></div>
-
       <div class="container hero-inner">
 
-        <div class="hero-photo-wrapper" id="hero-photo-zone">
-          <div class="hero-photo-fallback" aria-hidden="true">RKB</div>
-        </div>
-
         <div class="hero-text">
-          <p class="hero-eyebrow">Portfolio Web Sémantique</p>
-
           <h1 class="hero-name" property="schema:name foaf:name">
             <span class="hero-name-first" id="hero-firstname" property="schema:givenName">Riham</span>
-            <span class="hero-name-last" id="hero-lastname" property="schema:familyName"> Kaddour Bakir</span>
+            <span class="hero-name-last" id="hero-lastname" property="schema:familyName">Kaddour Bakir</span>
           </h1>
 
-          <p class="hero-title" id="hero-title" property="schema:jobTitle">
-            Ingénieure Informatique en Alternance
-          </p>
+          <p class="hero-title" id="hero-title" property="schema:jobTitle">Consultante Data &amp; BI</p>
 
-          <p class="hero-badge">
-            <span class="badge-dot"></span>
-            <span id="hero-tagline" property="schema:description">
-              Développement · Data · Systèmes — Sup Galilée · Université Sorbonne Paris Nord
-            </span>
+          <p class="hero-tagline" id="hero-tagline" property="schema:description">
+            J’intègre, fiabilise et automatise vos données pour les rendre réellement exploitables.
           </p>
 
           <meta property="schema:email" content="kaddourbakirriham@gmail.com">
@@ -144,16 +147,25 @@
           <link rel="foaf:account schema:sameAs" href="https://www.linkedin.com/in/riham-kaddour-bakir">
           <link rel="foaf:account schema:sameAs" href="https://github.com/riham-kb">
 
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#projects">Voir mes projets</a>
-            <a class="btn btn-outline" href="#contact">Me contacter</a>
-          </div>
-        </div>
-      </div>
+          <ul class="hero-chips" data-i18n-aria="aria.keySkills" aria-label="Compétences clés">
+            <li class="chip" style="--dot:var(--c-yellow)"><span class="chip-dot" aria-hidden="true"></span>Power BI</li>
+            <li class="chip" style="--dot:var(--c-orange)"><span class="chip-dot" aria-hidden="true"></span>SQL</li>
+            <li class="chip" style="--dot:var(--c-sky)"><span class="chip-dot" aria-hidden="true"></span>Python</li>
+            <li class="chip" style="--dot:var(--c-coral)"><span class="chip-dot" aria-hidden="true"></span><span data-i18n="hero.chipQuality">Data Quality</span></li>
+            <li class="chip" style="--dot:var(--c-purple)"><span class="chip-dot" aria-hidden="true"></span><span data-i18n="hero.chipAutomation">Automatisation</span></li>
+          </ul>
 
-      <div class="hero-scroll">
-        <span>SCROLL</span>
-        <span class="scroll-arrow"></span>
+          <div class="hero-cta">
+            <a class="btn btn-yellow" href="#cases" data-i18n="cta.cases">Voir mes réalisations</a>
+            <a class="btn btn-outline" href="#contact" data-i18n="cta.contact">Me contacter</a>
+          </div>
+
+          <ul class="hero-meta" id="hero-meta"></ul>
+        </div>
+
+        <!-- Rapport interactif généré par main.js à partir des compétences du XML -->
+        <div class="hero-visual" id="hero-report"></div>
+
       </div>
     </section>
 
@@ -169,49 +181,41 @@
 
     <div class="container footer-inner">
 
-      <div>
+      <div class="footer-id">
         <p class="footer-name" property="schema:name foaf:name">Riham Kaddour Bakir</p>
-        <p class="footer-built">Réalisé avec HTML, CSS, JavaScript, XML et RDFa.</p>
+        <p class="footer-built" data-i18n="footer.built">Réalisé avec HTML, CSS, JavaScript, XML et RDFa.</p>
       </div>
 
       <div class="footer-contact">
         <a class="footer-link"
            href="mailto:kaddourbakirriham@gmail.com"
-           rel="foaf:mbox">
-          ✉ kaddourbakirriham@gmail.com
-        </a>
+           rel="foaf:mbox">kaddourbakirriham@gmail.com</a>
 
         <a class="footer-link"
            href="tel:+33695889744"
-           property="schema:telephone">
-          ☎ +33 6 95 88 97 44
-        </a>
+           property="schema:telephone">+33 6 95 88 97 44</a>
 
         <a class="footer-link"
            href="https://www.linkedin.com/in/riham-kaddour-bakir"
-           rel="foaf:account schema:sameAs">
-          in LinkedIn
-        </a>
+           rel="foaf:account schema:sameAs">LinkedIn</a>
 
         <a class="footer-link"
            href="https://github.com/riham-kb"
-           rel="foaf:account schema:sameAs">
-          ⌥ GitHub
-        </a>
+           rel="foaf:account schema:sameAs">GitHub</a>
       </div>
 
-      <div class="footer-nav">
-        <a class="footer-nav-link" href="#about">À propos</a>
-        <a class="footer-nav-link" href="#education">Formation</a>
-        <a class="footer-nav-link" href="#projects">Projets</a>
-        <a class="footer-nav-link" href="#contact">Contact</a>
-      </div>
+      <nav class="footer-nav" data-i18n-aria="aria.footerNav" aria-label="Navigation du pied de page">
+        <a class="footer-nav-link" href="#about" data-i18n="nav.about">À propos</a>
+        <a class="footer-nav-link" href="#education" data-i18n="nav.education">Formation</a>
+        <a class="footer-nav-link" href="#projects" data-i18n="nav.projects">Projets</a>
+        <a class="footer-nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
 
     </div>
 
     <div class="container footer-copy">
-      <p>© <span id="year"></span> — Tous droits réservés.</p>
-      <p class="footer-academic">Portfolio Web Sémantique – Sup Galilée / Université Sorbonne Paris Nord</p>
+      <p>© <span id="year"></span> — <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+      <p class="footer-academic" data-i18n="footer.academic">Portfolio Web Sémantique – Sup Galilée / Université Sorbonne Paris Nord</p>
     </div>
   </footer>
 

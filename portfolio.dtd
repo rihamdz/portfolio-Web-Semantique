@@ -6,7 +6,7 @@
      ============================================================ -->
 
 <!-- Élément racine du portfolio -->
-<!ELEMENT portfolio (meta, identity, about, education, experience, skills, projects, video, contact)>
+<!ELEMENT portfolio (meta, identity, services, cases, about, education, experience, skills, projects, contact)>
 <!ATTLIST portfolio
     version     CDATA   #REQUIRED
     defaultLang CDATA   #REQUIRED
@@ -138,17 +138,6 @@
     label   CDATA   #REQUIRED
 >
 
-<!-- ===================== VIDEO ===================== -->
-<!ELEMENT video (sectionTitle, videoItem+)>
-
-<!ELEMENT videoItem EMPTY>
-<!ATTLIST videoItem
-    lang        CDATA   #REQUIRED
-    youtubeId   CDATA   #REQUIRED
-    title       CDATA   #REQUIRED
-    subtitleSrc CDATA   #IMPLIED
->
-
 <!-- ===================== CONTACT ===================== -->
 <!ELEMENT contact (sectionTitle, contactIntro, availability)>
 
@@ -157,3 +146,28 @@
 
 <!-- ===================== SECTION TITLES ===================== -->
 <!ELEMENT sectionTitle (translation+)>
+
+<!-- ===================== SERVICES (chaîne de la donnée) ===================== -->
+<!ELEMENT services (sectionTitle, sectionIntro, step+, service+)>
+<!ELEMENT sectionIntro (translation+)>
+<!ELEMENT step (label)>
+<!ATTLIST step id CDATA #REQUIRED icon CDATA #REQUIRED>
+<!ELEMENT label (translation+)>
+<!ELEMENT service (title, problem, action, deliverable, tags)>
+<!ATTLIST service id CDATA #REQUIRED icon CDATA #REQUIRED>
+<!ELEMENT problem (translation+)>
+<!ELEMENT action (translation+)>
+<!ELEMENT deliverable (translation+)>
+<!ELEMENT tags (tag+)>
+<!ELEMENT tag (#PCDATA)>
+
+<!-- ===================== RÉALISATIONS (études de cas) ===================== -->
+<!ELEMENT cases (sectionTitle, sectionIntro, caseItem+)>
+<!ELEMENT caseItem (caseTitle, caseDesc, techs, comps)>
+<!ATTLIST caseItem id CDATA #REQUIRED icon CDATA #REQUIRED>
+<!ELEMENT caseTitle (translation+)>
+<!ELEMENT caseDesc (translation+)>
+<!ELEMENT techs (tech+)>
+<!ELEMENT comps (comp+)>
+<!ELEMENT comp (#PCDATA)>
+<!ATTLIST comp lang CDATA #REQUIRED>

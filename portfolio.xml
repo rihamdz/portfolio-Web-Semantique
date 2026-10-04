@@ -44,17 +44,9 @@
     <identity>
         <fullName>Riham Kaddour Bakir</fullName>
 
-        <title>
-            <translation lang="fr">Ingénieure Informatique en Alternance</translation>
-            <translation lang="en">Computer Engineering Apprentice</translation>
-            <translation lang="ar">طالبة هندسة معلوماتية – تدريب متناوب</translation>
-        </title>
+        <title><translation lang="fr">Consultante Data &amp; BI</translation><translation lang="en">Data &amp; BI Consultant</translation><translation lang="ar">مستشارة بيانات وذكاء أعمال</translation></title>
 
-        <tagline>
-            <translation lang="fr">Développement · Data · Systèmes — Sup Galilée · Université Sorbonne Paris Nord</translation>
-            <translation lang="en">Development · Data · Systems — Sup Galilée · Université Sorbonne Paris Nord</translation>
-            <translation lang="ar">تطوير · بيانات · أنظمة — Sup Galilée · جامعة سوربون باريس نور</translation>
-        </tagline>
+        <tagline><translation lang="fr">J’intègre, fiabilise et automatise vos données pour les rendre réellement exploitables.</translation><translation lang="en">I integrate, secure and automate your data to make it truly usable.</translation><translation lang="ar">أدمج بياناتكم وأضمن موثوقيتها وأؤتمتها لتصبح قابلة للاستغلال فعلاً.</translation></tagline>
 
         <location>Île-de-France, France</location>
         <email>kaddourbakirriham@gmail.com</email>
@@ -162,7 +154,30 @@
     <!-- =====================================================================
          EXPERIENCE : Expériences professionnelles
          ===================================================================== -->
-    <experience>
+    <services>
+<sectionTitle><translation lang="fr">Des données dispersées à des outils utiles.</translation><translation lang="en">From scattered data to useful tools.</translation></sectionTitle>
+<sectionIntro><translation lang="fr">Je construis la chaîne complète de la donnée, de la source au reporting, autour de quatre besoins complémentaires.</translation><translation lang="en">I build the full data chain, from source to reporting, around four complementary needs.</translation></sectionIntro>
+<step id="step-1" icon="sources"><label><translation lang="fr">Sources</translation><translation lang="en">Sources</translation><translation lang="ar">المصادر</translation></label></step>
+<step id="step-2" icon="integration"><label><translation lang="fr">Intégration</translation><translation lang="en">Integration</translation><translation lang="ar">التكامل</translation></label></step>
+<step id="step-3" icon="gear"><label><translation lang="fr">Transformation</translation><translation lang="en">Transformation</translation><translation lang="ar">التحويل</translation></label></step>
+<step id="step-4" icon="shield"><label><translation lang="fr">Data Quality</translation><translation lang="en">Data Quality</translation><translation lang="ar">جودة البيانات</translation></label></step>
+<step id="step-5" icon="model"><label><translation lang="fr">Modèle</translation><translation lang="en">Model</translation><translation lang="ar">النموذج</translation></label></step>
+<step id="step-6" icon="reporting"><label><translation lang="fr">Reporting</translation><translation lang="en">Reporting</translation><translation lang="ar">التقارير</translation></label></step>
+<service id="svc-1" icon="integration"><title><translation lang="fr">Intégrer &amp; consolider</translation><translation lang="en">Integrate &amp; consolidate</translation></title><problem><translation lang="fr">Vos données sont dispersées entre fichiers, bases et applications.</translation><translation lang="en">Your data is scattered across files, databases and applications.</translation></problem><action><translation lang="fr">Je collecte, prépare et rapproche les sources pour les faire fonctionner ensemble.</translation><translation lang="en">I collect, prepare and reconcile sources so they work together.</translation></action><deliverable><translation lang="fr">Un jeu de données consolidé et structuré pour vos usages.</translation><translation lang="en">A consolidated, structured dataset ready for your needs.</translation></deliverable><tags><tag>Python</tag><tag>SQL</tag><tag>Excel</tag></tags></service>
+<service id="svc-2" icon="shield"><title><translation lang="fr">Fiabiliser &amp; contrôler</translation><translation lang="en">Make reliable &amp; control</translation></title><problem><translation lang="fr">Des incohérences ou des anomalies rendent vos données difficiles à utiliser.</translation><translation lang="en">Inconsistencies or anomalies make your data hard to use.</translation></problem><action><translation lang="fr">Je mets en place les contrôles de Data Quality et les rapprochements utiles.</translation><translation lang="en">I set up Data Quality checks and the reconciliations that matter.</translation></action><deliverable><translation lang="fr">Des données vérifiées et des anomalies identifiées.</translation><translation lang="en">Verified data and identified anomalies.</translation></deliverable><tags><tag>Data Quality</tag><tag>SQL</tag><tag>Python</tag><tag>Power BI</tag></tags></service>
+<service id="svc-3" icon="refresh"><title><translation lang="fr">Automatiser &amp; industrialiser</translation><translation lang="en">Automate &amp; industrialise</translation></title><problem><translation lang="fr">Les extractions, transformations et reportings reposent encore sur des manipulations manuelles.</translation><translation lang="en">Extractions, transformations and reports still rely on manual work.</translation></problem><action><translation lang="fr">J’automatise les traitements récurrents avec les outils adaptés à votre environnement.</translation><translation lang="en">I automate recurring processes with the tools that fit your environment.</translation></action><deliverable><translation lang="fr">Des traitements reproductibles, documentés et simples à maintenir.</translation><translation lang="en">Reproducible, documented and easy-to-maintain processes.</translation></deliverable><tags><tag>Power Automate</tag><tag>Power Query</tag><tag>Excel VBA</tag><tag>Python</tag></tags></service>
+<service id="svc-4" icon="reporting"><title><translation lang="fr">Analyser &amp; piloter</translation><translation lang="en">Analyse &amp; steer</translation></title><problem><translation lang="fr">Vos reportings sont difficiles à comprendre, à faire évoluer ou à maintenir.</translation><translation lang="en">Your reports are hard to understand, evolve or maintain.</translation></problem><action><translation lang="fr">J’analyse les données et construis vos modèles, KPI et rapports Power BI.</translation><translation lang="en">I analyse data and build your models, KPIs and Power BI reports.</translation></action><deliverable><translation lang="fr">Un reporting utile aux équipes, avec des indicateurs compréhensibles.</translation><translation lang="en">Useful reporting for teams, with clear indicators.</translation></deliverable><tags><tag>Power BI</tag><tag>DAX</tag><tag>Power Query</tag><tag>SQL</tag></tags></service>
+</services>
+
+<cases>
+<sectionTitle><translation lang="fr">Des réalisations concrètes.</translation><translation lang="en">Concrete work.</translation></sectionTitle>
+<sectionIntro><translation lang="fr">Trois expériences professionnelles autour de GridMind. Aucune donnée interne ou confidentielle n’est divulguée.</translation><translation lang="en">Three professional experiences around GridMind. No internal or confidential data is disclosed.</translation></sectionIntro>
+<caseItem id="case-1" icon="integration"><caseTitle><translation lang="fr">GridMind – Centralisation et valorisation des données</translation><translation lang="en">GridMind – Data centralisation and valorisation</translation></caseTitle><caseDesc><translation lang="fr">Développer une solution centralisant des données de plusieurs sources pour faciliter leur exploitation et leur analyse.</translation><translation lang="en">Build a solution that centralises data from several sources to ease their use and analysis.</translation></caseDesc><techs><tech>Python</tech><tech>SQL</tech><tech>Power BI</tech><tech>Excel</tech></techs><comps><comp lang="fr">Collecte et préparation des données</comp><comp lang="fr">Contrôle qualité des données</comp><comp lang="fr">Consolidation multi-sources</comp><comp lang="fr">Analyse décisionnelle</comp><comp lang="en">Data collection and preparation</comp><comp lang="en">Data quality control</comp><comp lang="en">Multi-source consolidation</comp><comp lang="en">Decision analysis</comp></comps></caseItem>
+<caseItem id="case-2" icon="refresh"><caseTitle><translation lang="fr">GridMind – Automatisation des processus de reporting</translation><translation lang="en">GridMind – Reporting process automation</translation></caseTitle><caseDesc><translation lang="fr">Concevoir des automatisations pour réduire les tâches manuelles et améliorer la fiabilité des indicateurs de suivi.</translation><translation lang="en">Design automations to cut manual tasks and improve the reliability of tracking indicators.</translation></caseDesc><techs><tech>Power Automate</tech><tech>Power BI</tech><tech>Power Query</tech><tech>Excel VBA</tech></techs><comps><comp lang="fr">Automatisation de workflows</comp><comp lang="fr">Création d’indicateurs de performance</comp><comp lang="fr">Mise à jour automatique des données</comp><comp lang="fr">Optimisation des processus métiers</comp><comp lang="en">Workflow automation</comp><comp lang="en">Performance indicators</comp><comp lang="en">Automatic data refresh</comp><comp lang="en">Business process optimisation</comp></comps></caseItem>
+<caseItem id="case-3" icon="reporting"><caseTitle><translation lang="fr">GridMind – Visualisation et aide à la décision</translation><translation lang="en">GridMind – Visualisation and decision support</translation></caseTitle><caseDesc><translation lang="fr">Créer des tableaux de bord interactifs pour accéder rapidement aux informations essentielles et suivre les indicateurs clés.</translation><translation lang="en">Create interactive dashboards giving quick access to essential information and key indicators.</translation></caseDesc><techs><tech>Power BI</tech><tech>DAX</tech><tech>Power Query</tech><tech>SQL</tech></techs><comps><comp lang="fr">Conception de tableaux de bord</comp><comp lang="fr">Modélisation de données</comp><comp lang="fr">Data storytelling</comp><comp lang="fr">Analyse métier</comp><comp lang="en">Dashboard design</comp><comp lang="en">Data modelling</comp><comp lang="en">Data storytelling</comp><comp lang="en">Business analysis</comp></comps></caseItem>
+</cases>
+
+<experience>
         <sectionTitle>
             <translation lang="fr">Expérience professionnelle</translation>
             <translation lang="en">Professional experience</translation>
@@ -310,140 +325,7 @@
             <skill name="Arabe"    level="expert"/>
         </category>
     </skills>
-
-    <!-- =====================================================================
-         SEMANTIC WEB TPs : Travaux Pratiques Web Sémantique
-         ===================================================================== -->
-    <semanticTPs>
-        <sectionTitle>
-            <translation lang="fr">Web Sémantique – Travaux Pratiques</translation>
-            <translation lang="en">Semantic Web – Lab Work</translation>
-            <translation lang="ar">الويب الدلالي – أعمال تطبيقية</translation>
-        </sectionTitle>
-
-        <sectionIntro>
-            <translation lang="fr">Dans le cadre du cours Web Sémantique (WSAIR2_2526) à l'Université Sorbonne Paris Nord, j'ai réalisé une série de travaux pratiques couvrant les technologies fondamentales du Web des données.</translation>
-            <translation lang="en">As part of the Semantic Web course (WSAIR2_2526) at Université Sorbonne Paris Nord, I completed a series of lab sessions covering the core technologies of the Web of Data.</translation>
-            <translation lang="ar">في إطار مقرر الويب الدلالي (WSAIR2_2526) بجامعة سوربون باريس نور، أنجزت سلسلة من الأعمال التطبيقية تغطي التقنيات الأساسية لويب البيانات.</translation>
-        </sectionIntro>
-
-        <tp id="tp3" number="3" icon="🔗">
-            <tpTitle>
-                <translation lang="fr">TP3 — RDF, SPARQL et Corese</translation>
-                <translation lang="en">Lab 3 — RDF, SPARQL and Corese</translation>
-                <translation lang="ar">TP3 — RDF وSPARQL وCorese</translation>
-            </tpTitle>
-            <tpDesc>
-                <translation lang="fr">Modélisation en RDF/XML de l'univers de La Compagnie des Glaces : classes (Personnage, Ville, Train, Compagnie), propriétés avec domaine/portée, individus. Visualisation du graphe avec Graphviz. Interrogation via 4 requêtes SPARQL dans Corese (SELECT, OPTIONAL, FILTER, ORDER BY, types XSD).</translation>
-                <translation lang="en">RDF/XML modelling of the La Compagnie des Glaces universe: classes (Character, City, Train, Company), properties with domain/range, individuals. Graph visualisation with Graphviz. Queried with 4 SPARQL queries in Corese (SELECT, OPTIONAL, FILTER, ORDER BY, XSD types).</translation>
-                <translation lang="ar">نمذجة RDF/XML لعالم La Compagnie des Glaces: فئات (شخصية، مدينة، قطار، شركة)، خصائص بمجال ونطاق، أفراد. تصور الرسم البياني بـ Graphviz. استعلام بـ 4 استعلامات SPARQL في Corese.</translation>
-            </tpDesc>
-            <techStack>
-                <tech>RDF/XML</tech>
-                <tech>RDFS</tech>
-                <tech>SPARQL</tech>
-                <tech>Corese</tech>
-                <tech>Graphviz</tech>
-                <tech>xsd:integer</tech>
-            </techStack>
-            <notions>
-                <notion lang="fr">Triplets RDF (sujet, prédicat, objet)</notion>
-                <notion lang="fr">rdfs:Class, rdfs:domain, rdfs:range</notion>
-                <notion lang="fr">Requêtes SELECT avec OPTIONAL et FILTER</notion>
-                <notion lang="fr">Typage XSD pour tri numérique</notion>
-                <notion lang="en">RDF triples (subject, predicate, object)</notion>
-                <notion lang="en">rdfs:Class, rdfs:domain, rdfs:range</notion>
-                <notion lang="en">SELECT queries with OPTIONAL and FILTER</notion>
-                <notion lang="en">XSD typing for numeric sorting</notion>
-                <notion lang="ar">ثلاثيات RDF (موضوع، محمول، مفعول)</notion>
-                <notion lang="ar">rdfs:Class وrdfs:domain وrdfs:range</notion>
-                <notion lang="ar">استعلامات SELECT مع OPTIONAL وFILTER</notion>
-            </notions>
-        </tp>
-
-        <tp id="tp4" number="4" icon="📄">
-            <tpTitle>
-                <translation lang="fr">TP4 — XML Schema, XSLT et Unicode</translation>
-                <translation lang="en">Lab 4 — XML Schema, XSLT and Unicode</translation>
-                <translation lang="ar">TP4 — XML Schema وXSLT وUnicode</translation>
-            </tpTitle>
-            <tpDesc>
-                <translation lang="fr">Modélisation XSD des débats du Parlement Européen : types simples (restrictions, énumérations, regex), types complexes, contraintes xs:key/xs:keyref. Transformation XSLT 1.0 du XML en HTML avec clés XSLT pour jointures. Implémentation manuelle des encodages UCS-4, UTF-8 et UTF-16 BE en Python (manipulation de bits sans librairie).</translation>
-                <translation lang="en">XSD modelling of European Parliament debates: simple types (restrictions, enumerations, regex), complex types, xs:key/xs:keyref constraints. XSLT 1.0 transformation of XML to HTML with XSLT keys for joins. Manual implementation of UCS-4, UTF-8 and UTF-16 BE encodings in Python (bit manipulation without libraries).</translation>
-                <translation lang="ar">نمذجة XSD لمناقشات البرلمان الأوروبي: أنواع بسيطة (قيود وتعدادات وتعبيرات نظامية)، أنواع معقدة، قيود xs:key وxs:keyref. تحويل XSLT 1.0 من XML إلى HTML. تطبيق يدوي لترميزات UCS-4 وUTF-8 وUTF-16 BE بـ Python.</translation>
-            </tpDesc>
-            <techStack>
-                <tech>XML Schema (XSD)</tech>
-                <tech>XSLT 1.0</tech>
-                <tech>XML</tech>
-                <tech>Python</tech>
-                <tech>Unicode</tech>
-                <tech>UTF-8</tech>
-                <tech>UTF-16 BE</tech>
-            </techStack>
-            <notions>
-                <notion lang="fr">Types simples XSD (restriction, énumération, regex)</notion>
-                <notion lang="fr">Types complexes (sequence, all, simpleContent)</notion>
-                <notion lang="fr">Contraintes d'intégrité xs:key / xs:keyref</notion>
-                <notion lang="fr">Clés XSLT pour jointures inter-éléments</notion>
-                <notion lang="fr">Encodages Unicode : UCS-4, UTF-8, UTF-16 BE</notion>
-                <notion lang="fr">Manipulation de bits (masques, décalages)</notion>
-                <notion lang="en">XSD simple types (restriction, enumeration, regex)</notion>
-                <notion lang="en">Complex types (sequence, all, simpleContent)</notion>
-                <notion lang="en">Integrity constraints xs:key / xs:keyref</notion>
-                <notion lang="en">XSLT keys for cross-element joins</notion>
-                <notion lang="en">Unicode encodings: UCS-4, UTF-8, UTF-16 BE</notion>
-                <notion lang="ar">أنواع XSD البسيطة (تقييد، تعداد، تعبير نظامي)</notion>
-                <notion lang="ar">أنواع معقدة (sequence، all، simpleContent)</notion>
-                <notion lang="ar">قيود التكامل xs:key وxs:keyref</notion>
-                <notion lang="ar">ترميزات Unicode: UCS-4 وUTF-8 وUTF-16 BE</notion>
-            </notions>
-        </tp>
-
-        <tp id="tp5" number="5" icon="🌐">
-            <tpTitle>
-                <translation lang="fr">TP5 — RDFa 1.1 et Web Sémantique</translation>
-                <translation lang="en">Lab 5 — RDFa 1.1 and Semantic Web</translation>
-                <translation lang="ar">TP5 — RDFa 1.1 والويب الدلالي</translation>
-            </tpTitle>
-            <tpDesc>
-                <translation lang="fr">Page HTML annotée en RDFa 1.1 représentant 6 personnages de BD franco-belge. Multi-vocabulaires : FOAF, Schema.org, DBpedia Ontology, Dublin Core. Alignement LOD via owl:sameAs vers DBpedia. Sérialisation Turtle de vérification. 5 requêtes SPARQL sur l'endpoint DBpedia. Conformité aux bonnes pratiques W3C DWBP.</translation>
-                <translation lang="en">HTML page annotated in RDFa 1.1 representing 6 Franco-Belgian comics characters. Multi-vocabulary: FOAF, Schema.org, DBpedia Ontology, Dublin Core. LOD alignment via owl:sameAs to DBpedia. Turtle serialisation for verification. 5 SPARQL queries on the DBpedia endpoint. Compliance with W3C DWBP best practices.</translation>
-                <translation lang="ar">صفحة HTML مُوسَّمة بـ RDFa 1.1 تمثل 6 شخصيات من القصص المصورة. متعددة المفردات: FOAF وSchema.org وDBpedia Ontology وDublin Core. محاذاة LOD عبر owl:sameAs نحو DBpedia. تسلسل Turtle للتحقق. 5 استعلامات SPARQL على endpoint DBpedia.</translation>
-            </tpDesc>
-            <techStack>
-                <tech>RDFa 1.1</tech>
-                <tech>FOAF</tech>
-                <tech>Schema.org</tech>
-                <tech>DBpedia Ontology</tech>
-                <tech>Dublin Core</tech>
-                <tech>owl:sameAs</tech>
-                <tech>SPARQL</tech>
-                <tech>Turtle</tech>
-            </techStack>
-            <notions>
-                <notion lang="fr">Annotations RDFa (about, typeof, property, rel)</notion>
-                <notion lang="fr">Typage multiple pour l'interopérabilité LOD</notion>
-                <notion lang="fr">owl:sameAs et traversal sémantique</notion>
-                <notion lang="fr">Tags de langue sur les littéraux (@fr, @en)</notion>
-                <notion lang="fr">Types XSD (xsd:gYear) sur valeurs temporelles</notion>
-                <notion lang="fr">Requêtes SPARQL avec VALUES, OPTIONAL, FILTER(LANG)</notion>
-                <notion lang="en">RDFa annotations (about, typeof, property, rel)</notion>
-                <notion lang="en">Multiple typing for LOD interoperability</notion>
-                <notion lang="en">owl:sameAs and semantic traversal</notion>
-                <notion lang="en">Language tags on literals (@fr, @en)</notion>
-                <notion lang="en">XSD types (xsd:gYear) on temporal values</notion>
-                <notion lang="en">SPARQL queries with VALUES, OPTIONAL, FILTER(LANG)</notion>
-                <notion lang="ar">توسيمات RDFa (about، typeof، property، rel)</notion>
-                <notion lang="ar">التصنيف المتعدد لقابلية التشغيل البيني LOD</notion>
-                <notion lang="ar">owl:sameAs والتنقل الدلالي</notion>
-                <notion lang="ar">علامات اللغة على الحرفيات (@fr، @en)</notion>
-                <notion lang="ar">استعلامات SPARQL مع VALUES وOPTIONAL وFILTER(LANG)</notion>
-            </notions>
-        </tp>
-    </semanticTPs>
-
-    <!-- =====================================================================
+<!-- =====================================================================
          PROJECTS : Projets informatiques
          ===================================================================== -->
     <projects>
@@ -553,41 +435,6 @@
     <!-- =====================================================================
          VIDEO : Présentation vidéo multilingue + ressource LSF
          ===================================================================== -->
-    <video>
-        <sectionTitle>
-            <translation lang="fr">Présentation vidéo</translation>
-            <translation lang="en">Video presentation</translation>
-            <translation lang="ar">تقديم بالفيديو</translation>
-        </sectionTitle>
-
-        <videoItem
-            lang="fr"
-            youtubeId="TODO_YOUTUBE_ID_FR"
-            title="Présentation de mon portfolio en français"
-            subtitleSrc="subtitles/portfolio-fr.vtt"
-        />
-        <videoItem
-            lang="en"
-            youtubeId="TODO_YOUTUBE_ID_EN"
-            title="Portfolio presentation in English"
-            subtitleSrc="subtitles/portfolio-en.vtt"
-        />
-        <videoItem
-            lang="ar"
-            youtubeId="TODO_YOUTUBE_ID_AR"
-            title="تقديم ملف الأعمال بالعربية"
-            subtitleSrc="subtitles/portfolio-ar.vtt"
-        />
-
-        <!-- Ressource langue des signes -->
-        <extraVideo
-            youtubeId="Zz711bmuUBw"
-            titleFr="Comment dire « Bonjour, je m'appelle... » en langue des signes"
-            titleEn="How to sign 'Hello, my name is...' in sign language"
-            titleAr="كيف تقول «مرحباً، اسمي...» بلغة الإشارة"
-        />
-    </video>
-
     <!-- =====================================================================
          CONTACT
          ===================================================================== -->
