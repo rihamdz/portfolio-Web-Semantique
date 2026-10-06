@@ -5,11 +5,9 @@
  * - Charger portfolio.xml (source de vérité multilingue)
  * - Gérer la langue (fr / en / ar) et la direction (LTR / RTL)
  * - Générer les sections HTML dynamiquement, avec leurs attributs RDFa
- * - Construire le rapport interactif du hero (style Power BI) à partir des
  *   compétences du XML
  *
  * Règle : aucun texte visible n'est écrit en dur. Les contenus viennent du XML,
- * les textes d'interface du dictionnaire `labels` ci-dessous.
  */
 (function () {
   'use strict';
