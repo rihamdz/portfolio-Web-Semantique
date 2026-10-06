@@ -320,7 +320,7 @@
                 <translation lang="en">Languages</translation>
                 <translation lang="ar">اللغات</translation>
             </categoryName>
-            <skill name="Français" level="expert"/>
+            <skill name="Français" level="advanced"/>
             <skill name="Anglais"  level="advanced"/>
             <skill name="Arabe"    level="expert"/>
         </category>
